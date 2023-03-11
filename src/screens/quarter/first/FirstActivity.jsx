@@ -44,7 +44,7 @@ function FirstActivity() {
             color: "green",
           }}
         >
-          1st Quarter (updated na)
+          1st Quarter
         </Text>
         <Text style={{ fontSize: 19 }}>
           Sort and classify objects according to one atribute/property (color,
