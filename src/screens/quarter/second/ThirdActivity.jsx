@@ -19,7 +19,7 @@ function FirstActivity() {
   }, [checkKey]);
 
   const submitKeyHandler = () => {
-    if (actKey === "medappq2act2") {
+    if (actKey === "medappq2act3") {
       setCheckKey(true);
     } else {
       alert("Invalid Activity Key");
