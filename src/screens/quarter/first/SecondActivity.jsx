@@ -7,7 +7,7 @@ import * as Speech from "expo-speech";
 // react navigation
 import { useNavigation } from "@react-navigation/native";
 
-const videoFile = require("./../../../../assets/videos/sort_and_classify.mp4");
+const videoFile = require("./../../../../assets/videos/recognize_symmetry.mp4");
 
 function FirstActivity() {
   const navigation = useNavigation();
@@ -18,14 +18,13 @@ function FirstActivity() {
 
   useEffect(() => {
     if (checkKey) {
-      const thingToSay =
-        "Sort and classify objects according to one atribute/property (color, shape, size, function)";
+      const thingToSay = "Recognize Symmetry";
       Speech.speak(thingToSay);
     }
   }, [checkKey]);
 
   const submitKeyHandler = () => {
-    if (actKey === "medappq1act1") {
+    if (actKey === "medappq1act2") {
       setCheckKey(true);
     } else {
       alert("Invalid Activity Key");
@@ -46,10 +45,7 @@ function FirstActivity() {
         >
           1st Quarter
         </Text>
-        <Text style={{ fontSize: 19 }}>
-          Sort and classify objects according to one atribute/property (color,
-          shape, size, fuinction/use)
-        </Text>
+        <Text style={{ fontSize: 19 }}>Recognize Symmetry</Text>
       </View>
       <View style={{ padding: 10 }}>
         <Text style={{ fontSize: 19, fontWeight: "bold" }}>Video Lesson:</Text>
@@ -68,7 +64,7 @@ function FirstActivity() {
           mode="contained"
           style={{ height: 50, justifyContent: "center" }}
           buttonColor="green"
-          onPress={() => navigation.navigate("Activity1")}
+          onPress={() => navigation.navigate("Activity2")}
         >
           Start Activity
         </Button>

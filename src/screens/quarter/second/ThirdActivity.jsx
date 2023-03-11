@@ -4,28 +4,22 @@ import { Button, TextInput } from "react-native-paper";
 import { Video } from "expo-av";
 import * as Speech from "expo-speech";
 
-// react navigation
-import { useNavigation } from "@react-navigation/native";
-
-const videoFile = require("./../../../../assets/videos/sort_and_classify.mp4");
+const videoFile = require("./../../../../assets/videos/quantity_of_a_set.mp4");
 
 function FirstActivity() {
-  const navigation = useNavigation();
-
   const video = React.useRef(null);
   const [checkKey, setCheckKey] = useState(false);
   const [actKey, setActKey] = useState("");
 
   useEffect(() => {
     if (checkKey) {
-      const thingToSay =
-        "Sort and classify objects according to one atribute/property (color, shape, size, function)";
+      const thingToSay = "Quantity of a set of objects";
       Speech.speak(thingToSay);
     }
   }, [checkKey]);
 
   const submitKeyHandler = () => {
-    if (actKey === "medappq1act1") {
+    if (actKey === "medappq2act2") {
       setCheckKey(true);
     } else {
       alert("Invalid Activity Key");
@@ -44,12 +38,9 @@ function FirstActivity() {
             color: "green",
           }}
         >
-          1st Quarter
+          2nd Quarter
         </Text>
-        <Text style={{ fontSize: 19 }}>
-          Sort and classify objects according to one atribute/property (color,
-          shape, size, fuinction/use)
-        </Text>
+        <Text style={{ fontSize: 19 }}>Quantity of a set of objects</Text>
       </View>
       <View style={{ padding: 10 }}>
         <Text style={{ fontSize: 19, fontWeight: "bold" }}>Video Lesson:</Text>
@@ -68,7 +59,7 @@ function FirstActivity() {
           mode="contained"
           style={{ height: 50, justifyContent: "center" }}
           buttonColor="green"
-          onPress={() => navigation.navigate("Activity1")}
+          onPress={() => console.log("Pressed")}
         >
           Start Activity
         </Button>

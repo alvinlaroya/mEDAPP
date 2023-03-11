@@ -7,7 +7,7 @@ import * as Speech from "expo-speech";
 // react navigation
 import { useNavigation } from "@react-navigation/native";
 
-const videoFile = require("./../../../../assets/videos/sort_and_classify.mp4");
+const videoFile = require("./../../../../assets/videos/hour_and_minutes_in_clock.mp4");
 
 function FirstActivity() {
   const navigation = useNavigation();
@@ -18,14 +18,13 @@ function FirstActivity() {
 
   useEffect(() => {
     if (checkKey) {
-      const thingToSay =
-        "Sort and classify objects according to one atribute/property (color, shape, size, function)";
+      const thingToSay = "Name the hour and minute hands in a clock";
       Speech.speak(thingToSay);
     }
   }, [checkKey]);
 
   const submitKeyHandler = () => {
-    if (actKey === "medappq1act1") {
+    if (actKey === "medappq4act8") {
       setCheckKey(true);
     } else {
       alert("Invalid Activity Key");
@@ -44,11 +43,10 @@ function FirstActivity() {
             color: "green",
           }}
         >
-          1st Quarter
+          4th Quarter
         </Text>
         <Text style={{ fontSize: 19 }}>
-          Sort and classify objects according to one atribute/property (color,
-          shape, size, fuinction/use)
+          Name the hour and minute hands in a clock
         </Text>
       </View>
       <View style={{ padding: 10 }}>
@@ -68,7 +66,7 @@ function FirstActivity() {
           mode="contained"
           style={{ height: 50, justifyContent: "center" }}
           buttonColor="green"
-          onPress={() => navigation.navigate("Activity1")}
+          onPress={() => navigation.navigate("Activity8")}
         >
           Start Activity
         </Button>

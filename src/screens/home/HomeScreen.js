@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { SafeAreaView, StyleSheet, Text, ScrollView, View, Image } from "react-native";
+import { SafeAreaView, StyleSheet, Text, ScrollView, View, Image, TouchableOpacity } from "react-native";
 
 // react navigation
 import { useNavigation } from "@react-navigation/native";
@@ -33,60 +33,74 @@ const App = () => {
           <Text style={styles.quarterTitle}>1st Quarter</Text>
           <View style={styles.quartSection}>
             <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-              <View style={{ width: 160 }}>
-                <View style={styles.card}>
-                  <Image style={styles.cardImage} source={require(`${imagePath}/first_quarter_week3.jpg`)} />
+              <TouchableOpacity onPress={() => navigation.navigate("FirstActivity")}>
+                <View style={{ width: 160 }}>
+                  <View style={styles.card}>
+                    <Image style={styles.cardImage} source={require(`${imagePath}/first_quarter_week3.jpg`)} />
+                  </View>
+                  <Text style={{ marginTop: 10 }}>Sort and classify objects</Text>
                 </View>
-                <Text style={{ marginTop: 10 }}>Sort and classify objects</Text>
-              </View>
-              <View style={{ marginLeft: 20, width: 160 }}>
-                <View style={styles.card}>
-                  <Image style={styles.cardImage} source={require(`${imagePath}/first_quarter_week6_2.jpg`)} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("SecondActivity")}>
+                <View style={{ marginLeft: 20, width: 160 }}>
+                  <View style={styles.card}>
+                    <Image style={styles.cardImage} source={require(`${imagePath}/first_quarter_week6_2.jpg`)} />
+                  </View>
+                  <Text style={{ marginTop: 10 }}>Recognize symmetry</Text>
                 </View>
-                <Text style={{ marginTop: 10 }}>Recognize symmetry</Text>
-              </View>
+              </TouchableOpacity>
             </ScrollView>
           </View>
         </View>
         <View style={styles.section}>
           <Text style={styles.quarterTitle}>2nd Quarter</Text>
           <View style={styles.quartSection}>
-            <View>
-              <View style={styles.fullCard}>
-                <Image style={styles.cardImage} source={require(`${imagePath}/second_quarter_week5.jpg`)} />
+            <TouchableOpacity onPress={() => navigation.navigate("ThirdActivity")}>
+              <View>
+                <View style={styles.fullCard}>
+                  <Image style={styles.cardImage} source={require(`${imagePath}/second_quarter_week5.jpg`)} />
+                </View>
+                <Text style={{ marginTop: 10 }}>Quantity of a set of objects</Text>
               </View>
-              <Text style={{ marginTop: 10 }}>Quantity of a set of objects</Text>
-            </View>
+            </TouchableOpacity>
           </View>
         </View>
         <View style={styles.section}>
           <Text style={styles.quarterTitle}>3rd Quarter</Text>
           <View style={styles.quartSection}>
             <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-              <View style={{ width: 160 }}>
-                <View style={styles.card}>
-                  <Image style={styles.cardImage} source={require(`${imagePath}/third_quarter_week1.png`)} />
+              <TouchableOpacity onPress={() => navigation.navigate("FourthActivity")}>
+                <View style={{ width: 160 }}>
+                  <View style={styles.card}>
+                    <Image style={styles.cardImage} source={require(`${imagePath}/third_quarter_week1.png`)} />
+                  </View>
+                  <Text style={{ marginTop: 10 }}>Days in a week, Months in a year</Text>
                 </View>
-                <Text style={{ marginTop: 10 }}>Days in a week, Months in a year</Text>
-              </View>
-              <View style={{ marginLeft: 20, width: 160 }}>
-                <View style={styles.card}>
-                  <Image style={styles.cardImage} source={require(`${imagePath}/third_quarter_week5.jpg`)} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("FifthActivity")}>
+                <View style={{ marginLeft: 20, width: 160 }}>
+                  <View style={styles.card}>
+                    <Image style={styles.cardImage} source={require(`${imagePath}/third_quarter_week5.jpg`)} />
+                  </View>
+                  <Text style={{ marginTop: 10 }}>Sequence of Events</Text>
                 </View>
-                <Text style={{ marginTop: 10 }}>Sequence of Events</Text>
-              </View>
-              <View style={{ marginLeft: 20, width: 160 }}>
-                <View style={styles.card}>
-                  <Image style={styles.cardImage} source={require(`${imagePath}/third_quarter_week5_2.jpg`)} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("SixthActivity")}>
+                <View style={{ marginLeft: 20, width: 160 }}>
+                  <View style={styles.card}>
+                    <Image style={styles.cardImage} source={require(`${imagePath}/third_quarter_week5_2.jpg`)} />
+                  </View>
+                  <Text style={{ marginTop: 10 }}>Sequence of size or length</Text>
                 </View>
-                <Text style={{ marginTop: 10 }}>Sequence of size or length</Text>
-              </View>
-              <View style={{ marginLeft: 20, width: 160 }}>
-                <View style={styles.card}>
-                  <Image style={styles.cardImage} source={require(`${imagePath}/third_quarter_week8.jpeg`)} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("SeventhActivity")}>
+                <View style={{ marginLeft: 20, width: 160 }}>
+                  <View style={styles.card}>
+                    <Image style={styles.cardImage} source={require(`${imagePath}/third_quarter_week8.jpeg`)} />
+                  </View>
+                  <Text style={{ marginTop: 10 }}>Quantity of a set of objects</Text>
                 </View>
-                <Text style={{ marginTop: 10 }}>Quantity of a set of objects</Text>
-              </View>
+              </TouchableOpacity>
             </ScrollView>
           </View>
         </View>
@@ -94,54 +108,70 @@ const App = () => {
           <Text style={styles.quarterTitle}>4th Quarter</Text>
           <View style={styles.quartSection}>
             <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-              <View style={{ width: 160 }}>
-                <View style={styles.card}>
-                  <Image style={styles.cardImage} source={require(`${imagePath}/fourth_quarter_week6.jpg`)} />
+              <TouchableOpacity onPress={() => navigation.navigate("EighthActivity")}>
+                <View style={{ width: 160 }}>
+                  <View style={styles.card}>
+                    <Image style={styles.cardImage} source={require(`${imagePath}/fourth_quarter_week6.jpg`)} />
+                  </View>
+                  <Text style={{ marginTop: 10 }}>Name the hour and minute hands in a clock</Text>
                 </View>
-                <Text style={{ marginTop: 10 }}>Name the hour and minute hands in a clock</Text>
-              </View>
-              <View style={{ marginLeft: 20, width: 160 }}>
-                <View style={styles.card}>
-                  <Image style={styles.cardImage} source={require(`${imagePath}/fourth_quarter_week6_2.jpg`)} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("NinthActivity")}>
+                <View style={{ marginLeft: 20, width: 160 }}>
+                  <View style={styles.card}>
+                    <Image style={styles.cardImage} source={require(`${imagePath}/fourth_quarter_week6_2.jpg`)} />
+                  </View>
+                  <Text style={{ marginTop: 10 }}>Tell time by the hour</Text>
                 </View>
-                <Text style={{ marginTop: 10 }}>Tell time by the hour</Text>
-              </View>
-              <View style={{ marginLeft: 20, width: 160 }}>
-                <View style={styles.card}>
-                  <Image style={styles.cardImage} source={require(`${imagePath}/fourth_quarter_week7.png`)} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("TenthActivity")}>
+                <View style={{ marginLeft: 20, width: 160 }}>
+                  <View style={styles.card}>
+                    <Image style={styles.cardImage} source={require(`${imagePath}/fourth_quarter_week7.png`)} />
+                  </View>
+                  <Text style={{ marginTop: 10 }}>Identify the numbers</Text>
                 </View>
-                <Text style={{ marginTop: 10 }}>Identify the numbers</Text>
-              </View>
-              <View style={{ marginLeft: 20, width: 160 }}>
-                <View style={styles.card}>
-                  <Image style={styles.cardImage} source={require(`${imagePath}/fourth_quarter_week7_2.jpeg`)} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("EleventhActivity")}>
+                <View style={{ marginLeft: 20, width: 160 }}>
+                  <View style={styles.card}>
+                    <Image style={styles.cardImage} source={require(`${imagePath}/fourth_quarter_week7_2.jpeg`)} />
+                  </View>
+                  <Text style={{ marginTop: 10 }}>Arrange three numbers</Text>
                 </View>
-                <Text style={{ marginTop: 10 }}>Arrange three numbers</Text>
-              </View>
-              <View style={{ marginLeft: 20, width: 160 }}>
-                <View style={styles.card}>
-                  <Image style={styles.cardImage} source={require(`${imagePath}/fourth_quarter_week8.jpeg`)} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("TwelveActivity")}>
+                <View style={{ marginLeft: 20, width: 160 }}>
+                  <View style={styles.card}>
+                    <Image style={styles.cardImage} source={require(`${imagePath}/fourth_quarter_week8.jpeg`)} />
+                  </View>
+                  <Text style={{ marginTop: 10 }}>Recognize the word</Text>
                 </View>
-                <Text style={{ marginTop: 10 }}>Recognize the word</Text>
-              </View>
-              <View style={{ marginLeft: 20, width: 160 }}>
-                <View style={styles.card}>
-                  <Image style={styles.cardImage} source={require(`${imagePath}/fourth_quarter_week9.png`)} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("ThirteenthActivity")}>
+                <View style={{ marginLeft: 20, width: 160 }}>
+                  <View style={styles.card}>
+                    <Image style={styles.cardImage} source={require(`${imagePath}/fourth_quarter_week9.png`)} />
+                  </View>
+                  <Text style={{ marginTop: 10 }}>Add quantities up to 10</Text>
                 </View>
-                <Text style={{ marginTop: 10 }}>Add quantities up to 10</Text>
-              </View>
-              <View style={{ marginLeft: 20, width: 160 }}>
-                <View style={styles.card}>
-                  <Image style={styles.cardImage} source={require(`${imagePath}/fourth_quarter_week9_2.png`)} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("FourteenthActivity")}>
+                <View style={{ marginLeft: 20, width: 160 }}>
+                  <View style={styles.card}>
+                    <Image style={styles.cardImage} source={require(`${imagePath}/fourth_quarter_week9_2.png`)} />
+                  </View>
+                  <Text style={{ marginTop: 10 }}>Subtract quantities up to 10</Text>
                 </View>
-                <Text style={{ marginTop: 10 }}>Subtract quantities up to 10</Text>
-              </View>
-              <View style={{ marginLeft: 20, width: 160 }}>
-                <View style={styles.card}>
-                  <Image style={styles.cardImage} source={require(`${imagePath}/fourth_quarter_week10.png`)} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("FifteenthActivity")}>
+                <View style={{ marginLeft: 20, width: 160 }}>
+                  <View style={styles.card}>
+                    <Image style={styles.cardImage} source={require(`${imagePath}/fourth_quarter_week10.png`)} />
+                  </View>
+                  <Text style={{ marginTop: 10 }}>Addition and Subtraction number sentence</Text>
                 </View>
-                <Text style={{ marginTop: 10 }}>Addition and Subtraction number sentence</Text>
-              </View>
+              </TouchableOpacity>
             </ScrollView>
           </View>
         </View>
