@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import {
+  SafeAreaView,
+  ScrollView,
+  Dimensions,
   View,
   Text,
   StyleSheet,
@@ -66,7 +69,6 @@ function FirstActivity() {
   const storeData = async () => {
     try {
       await AsyncStorage.setItem("@quarter2", JSON.stringify(100));
-      Updates.reloadAsync();
     } catch (e) {
       // saving error
     }
@@ -96,7 +98,7 @@ function FirstActivity() {
             >
               <Image
                 style={{
-                  width: "80%",
+                  width: "50%",
                   height: 120,
                   borderWidth: 2,
                   borderColor: "black",
@@ -125,7 +127,7 @@ function FirstActivity() {
             >
               <Image
                 style={{
-                  width: "80%",
+                  width: "50%",
                   height: 120,
                   borderWidth: 2,
                   borderColor: "black",
@@ -181,7 +183,7 @@ function FirstActivity() {
             >
               <Image
                 style={{
-                  width: "80%",
+                  width: "50%",
                   height: 150,
                   borderWidth: 2,
                   borderColor: "black",
@@ -210,7 +212,7 @@ function FirstActivity() {
             >
               <Image
                 style={{
-                  width: "80%",
+                  width: "50%",
                   height: 150,
                   borderWidth: 2,
                   borderColor: "black",
@@ -269,7 +271,7 @@ function FirstActivity() {
             >
               <Image
                 style={{
-                  width: "80%",
+                  width: "50%",
                   height: 150,
                   borderWidth: 2,
                   borderColor: "black",
@@ -299,7 +301,7 @@ function FirstActivity() {
             >
               <Image
                 style={{
-                  width: "80%",
+                  width: "50%",
                   height: 150,
                   borderWidth: 2,
                   borderColor: "black",
@@ -359,7 +361,7 @@ function FirstActivity() {
             >
               <Image
                 style={{
-                  width: "80%",
+                  width: "50%",
                   height: 150,
                   borderWidth: 2,
                   borderColor: "black",
@@ -388,7 +390,7 @@ function FirstActivity() {
             >
               <Image
                 style={{
-                  width: "80%",
+                  width: "50%",
                   height: 150,
                   borderWidth: 2,
                   borderColor: "black",
@@ -447,7 +449,7 @@ function FirstActivity() {
             >
               <Image
                 style={{
-                  width: "80%",
+                  width: "50%",
                   height: 150,
                   borderWidth: 2,
                   borderColor: "black",
@@ -474,7 +476,7 @@ function FirstActivity() {
             >
               <Image
                 style={{
-                  width: "80%",
+                  width: "50%",
                   height: 150,
                   borderWidth: 2,
                   borderColor: "black",
@@ -555,14 +557,25 @@ function FirstActivity() {
     renderQuestion = <ShowResult />;
   }
 
-  return <View style={styles.container}>{renderQuestion}</View>;
+  return (
+    <SafeAreaView>
+      <ScrollView style={{
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height
+      }}>
+        <View style={[styles.container, {
+          width: Dimensions.get('window').width,
+          height: Dimensions.get('window').height
+        }]}>{renderQuestion}</View>
+      </ScrollView>
+    </SafeAreaView>
+  );
 }
 
 export default FirstActivity;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: "#fff",
   },
   video: {

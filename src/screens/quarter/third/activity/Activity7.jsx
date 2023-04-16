@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import {
+  SafeAreaView,
+  ScrollView,
+  Dimensions,
   View,
   Text,
   StyleSheet,
@@ -66,9 +69,9 @@ function FirstActivity() {
   const storeData = async () => {
     try {
       const value = await AsyncStorage.getItem("@quarter3");
-      const total = Number(value) + 33.3;
+      const total = Number(value) + 50;
+      if(total >= 100) return;
       await AsyncStorage.setItem("@quarter3", JSON.stringify(total));
-      Updates.reloadAsync();
     } catch (e) {
       // saving error
     }
@@ -90,7 +93,7 @@ function FirstActivity() {
             larawan.
           </Text>
           <Image
-            style={{ width: 230, height: 230, resizeMode: "contain" }}
+            style={{ width: '50%', height: 230, resizeMode: "contain" }}
             source={require(`${imagePath}/question-1.png`)}
           />
         </View>
@@ -105,7 +108,7 @@ function FirstActivity() {
             >
               <Image
                 style={{
-                  width: "80%",
+                  width: "50%",
                   height: 120,
                   borderWidth: 2,
                   borderColor: "black",
@@ -134,7 +137,7 @@ function FirstActivity() {
             >
               <Image
                 style={{
-                  width: "80%",
+                  width: "50%",
                   height: 120,
                   borderWidth: 2,
                   borderColor: "black",
@@ -182,7 +185,7 @@ function FirstActivity() {
             larawan.
           </Text>
           <Image
-            style={{ width: 230, height: 230, resizeMode: "contain" }}
+            style={{ width: '50%', height: 230, resizeMode: "contain" }}
             source={require(`${imagePath}/question-2.png`)}
           />
         </View>
@@ -197,7 +200,7 @@ function FirstActivity() {
             >
               <Image
                 style={{
-                  width: "80%",
+                  width: "50%",
                   height: 120,
                   borderWidth: 2,
                   borderColor: "black",
@@ -226,7 +229,7 @@ function FirstActivity() {
             >
               <Image
                 style={{
-                  width: "80%",
+                  width: "50%",
                   height: 120,
                   borderWidth: 2,
                   borderColor: "black",
@@ -274,7 +277,7 @@ function FirstActivity() {
             larawan.
           </Text>
           <Image
-            style={{ width: 230, height: 230, resizeMode: "contain" }}
+            style={{ width: '50%', height: 230, resizeMode: "contain" }}
             source={require(`${imagePath}/question-3.png`)}
           />
         </View>
@@ -289,7 +292,7 @@ function FirstActivity() {
             >
               <Image
                 style={{
-                  width: "80%",
+                  width: "50%",
                   height: 120,
                   borderWidth: 2,
                   borderColor: "black",
@@ -318,7 +321,7 @@ function FirstActivity() {
             >
               <Image
                 style={{
-                  width: "80%",
+                  width: "50%",
                   height: 120,
                   borderWidth: 2,
                   borderColor: "black",
@@ -366,7 +369,7 @@ function FirstActivity() {
             larawan.
           </Text>
           <Image
-            style={{ width: 230, height: 230, resizeMode: "contain" }}
+            style={{ width: '50%', height: 230, resizeMode: "contain" }}
             source={require(`${imagePath}/question-4.png`)}
           />
         </View>
@@ -381,7 +384,7 @@ function FirstActivity() {
             >
               <Image
                 style={{
-                  width: "80%",
+                  width: "50%",
                   height: 120,
                   borderWidth: 2,
                   borderColor: "black",
@@ -410,7 +413,7 @@ function FirstActivity() {
             >
               <Image
                 style={{
-                  width: "80%",
+                  width: "50%",
                   height: 120,
                   borderWidth: 2,
                   borderColor: "black",
@@ -458,7 +461,7 @@ function FirstActivity() {
             larawan.
           </Text>
           <Image
-            style={{ width: 230, height: 230, resizeMode: "contain" }}
+            style={{ width: '50%', height: 230, resizeMode: "contain" }}
             source={require(`${imagePath}/question-5.png`)}
           />
         </View>
@@ -473,7 +476,7 @@ function FirstActivity() {
             >
               <Image
                 style={{
-                  width: "80%",
+                  width: "50%",
                   height: 120,
                   borderWidth: 2,
                   borderColor: "black",
@@ -502,7 +505,7 @@ function FirstActivity() {
             >
               <Image
                 style={{
-                  width: "80%",
+                  width: "50%",
                   height: 120,
                   borderWidth: 2,
                   borderColor: "black",
@@ -583,14 +586,25 @@ function FirstActivity() {
     renderQuestion = <ShowResult />;
   }
 
-  return <View style={styles.container}>{renderQuestion}</View>;
+  return (
+    <SafeAreaView>
+      <ScrollView style={{
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height
+      }}>
+        <View style={[styles.container, {
+          width: Dimensions.get('window').width,
+          height: Dimensions.get('window').height
+        }]}>{renderQuestion}</View>
+      </ScrollView>
+    </SafeAreaView>
+  );
 }
 
 export default FirstActivity;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: "#fff",
   },
   video: {

@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import {
+  SafeAreaView,
+  ScrollView,
+  Dimensions,
   View,
   Text,
   StyleSheet,
@@ -65,8 +68,8 @@ function FirstActivity() {
     try {
       const value = await AsyncStorage.getItem("@quarter4");
       const total = Number(value) + 12.5;
+      if(total >= 100) return;
       await AsyncStorage.setItem("@quarter4", JSON.stringify(total));
-      Updates.reloadAsync();
     } catch (e) {
       // saving error
     }
@@ -87,7 +90,7 @@ function FirstActivity() {
             Ano ang nauunang bilang sa kabiyak na pakpak ng paruparo?
           </Text>
           <Image
-            style={{ width: 160, height: 120, resizeMode: "contain" }}
+            style={{ width: '50%', height: 120, resizeMode: "contain" }}
             source={require(`${imagePath}/question-1.png`)}
           />
         </View>
@@ -162,7 +165,7 @@ function FirstActivity() {
             Ano ang nauunang bilang sa kabiyak na pakpak ng paruparo?
           </Text>
           <Image
-            style={{ width: 160, height: 120, resizeMode: "contain" }}
+            style={{ width: '50%', height: 120, resizeMode: "contain" }}
             source={require(`${imagePath}/question-2.png`)}
           />
         </View>
@@ -237,7 +240,7 @@ function FirstActivity() {
             Ano ang nauunang bilang sa kabiyak na pakpak ng paruparo?
           </Text>
           <Image
-            style={{ width: 160, height: 120, resizeMode: "contain" }}
+            style={{ width: '50%', height: 120, resizeMode: "contain" }}
             source={require(`${imagePath}/question-3.png`)}
           />
         </View>
@@ -326,7 +329,7 @@ function FirstActivity() {
                 height: 90,
               }}
             >
-              <Text style={{ fontSize: 90, fontWeight: "bold" }}>5</Text>
+              <Text style={{ fontSize: 22, fontWeight: "bold" }}>5</Text>
               {answer4 == "a" && (
                 <Image
                   style={{ width: 60, height: 60 }}
@@ -347,7 +350,7 @@ function FirstActivity() {
                 height: 90,
               }}
             >
-              <Text style={{ fontSize: 90, fontWeight: "bold" }}>4</Text>
+              <Text style={{ fontSize: 22, fontWeight: "bold" }}>4</Text>
               {answer4 == "b" && (
                 <Image
                   style={{ width: 60, height: 60 }}
@@ -401,7 +404,7 @@ function FirstActivity() {
                 height: 90,
               }}
             >
-              <Text style={{ fontSize: 90, fontWeight: "bold" }}>12</Text>
+              <Text style={{ fontSize: 22, fontWeight: "bold" }}>12</Text>
               {answer5 == "a" && (
                 <Image
                   style={{ width: 60, height: 60 }}
@@ -422,7 +425,7 @@ function FirstActivity() {
                 height: 90,
               }}
             >
-              <Text style={{ fontSize: 90, fontWeight: "bold" }}>15</Text>
+              <Text style={{ fontSize: 22, fontWeight: "bold" }}>15</Text>
               {answer5 == "b" && (
                 <Image
                   style={{ width: 60, height: 60 }}
@@ -496,14 +499,25 @@ function FirstActivity() {
     renderQuestion = <ShowResult />;
   }
 
-  return <View style={styles.container}>{renderQuestion}</View>;
+  return (
+    <SafeAreaView>
+      <ScrollView style={{
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height
+      }}>
+        <View style={[styles.container, {
+          width: Dimensions.get('window').width,
+          height: Dimensions.get('window').height
+        }]}>{renderQuestion}</View>
+      </ScrollView>
+    </SafeAreaView>
+  )
 }
 
 export default FirstActivity;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: "#fff",
   },
   video: {

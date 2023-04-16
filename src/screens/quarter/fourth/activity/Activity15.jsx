@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import {
+  SafeAreaView,
+  ScrollView,
+  Dimensions,
   View,
   Text,
   StyleSheet,
@@ -65,8 +68,8 @@ function FirstActivity() {
     try {
       const value = await AsyncStorage.getItem("@quarter4");
       const total = Number(value) + 12.5;
+      if(total >= 100) return;
       await AsyncStorage.setItem("@quarter4", JSON.stringify(total));
-      Updates.reloadAsync();
     } catch (e) {
       // saving error
     }
@@ -87,7 +90,7 @@ function FirstActivity() {
             Bilangin, pagsamahin at piliin ang tamang sagot.
           </Text>
           <Image
-            style={{ width: 250, height: 120, resizeMode: "contain" }}
+            style={{ width: '50%', height: 120, resizeMode: "contain" }}
             source={require(`${imagePath}/question-1.png`)}
           />
         </View>
@@ -101,7 +104,7 @@ function FirstActivity() {
                 height: 90,
               }}
             >
-              <Text style={{ fontSize: 90, fontWeight: "bold" }}>
+              <Text style={{ fontSize: 22, fontWeight: "bold" }}>
                 3 + 6 = 9
               </Text>
               {answer1 == "a" && (
@@ -124,7 +127,7 @@ function FirstActivity() {
                 height: 90,
               }}
             >
-              <Text style={{ fontSize: 90, fontWeight: "bold" }}>
+              <Text style={{ fontSize: 22, fontWeight: "bold" }}>
                 3 + 5 = 8
               </Text>
               {answer1 == "b" && (
@@ -166,7 +169,7 @@ function FirstActivity() {
             Bilangin, pagsamahin at piliin ang tamang sagot.
           </Text>
           <Image
-            style={{ width: 250, height: 120, resizeMode: "contain" }}
+            style={{ width: '50%', height: 120, resizeMode: "contain" }}
             source={require(`${imagePath}/question-2.png`)}
           />
         </View>
@@ -180,7 +183,7 @@ function FirstActivity() {
                 height: 90,
               }}
             >
-              <Text style={{ fontSize: 90, fontWeight: "bold" }}>
+              <Text style={{ fontSize: 22, fontWeight: "bold" }}>
                 2 + 5 = 7
               </Text>
               {answer2 == "a" && (
@@ -203,7 +206,7 @@ function FirstActivity() {
                 height: 90,
               }}
             >
-              <Text style={{ fontSize: 90, fontWeight: "bold" }}>
+              <Text style={{ fontSize: 22, fontWeight: "bold" }}>
                 3 + 5 = 8
               </Text>
               {answer2 == "b" && (
@@ -245,7 +248,7 @@ function FirstActivity() {
             Bilangin, pagsamahin at piliin ang tamang sagot.
           </Text>
           <Image
-            style={{ width: 250, height: 120, resizeMode: "contain" }}
+            style={{ width: '50%', height: 120, resizeMode: "contain" }}
             source={require(`${imagePath}/question-3.png`)}
           />
         </View>
@@ -262,7 +265,7 @@ function FirstActivity() {
                 height: 90,
               }}
             >
-              <Text style={{ fontSize: 90, fontWeight: "bold" }}>
+              <Text style={{ fontSize: 22, fontWeight: "bold" }}>
                 2 + 7 = 9
               </Text>
               {answer3 == "a" && (
@@ -282,7 +285,7 @@ function FirstActivity() {
                 height: 90,
               }}
             >
-              <Text style={{ fontSize: 90, fontWeight: "bold" }}>
+              <Text style={{ fontSize: 22, fontWeight: "bold" }}>
                 3 + 4 = 7
               </Text>
               {answer3 == "b" && (
@@ -324,7 +327,7 @@ function FirstActivity() {
             Bilangin, pagsamahin at piliin ang tamang sagot.
           </Text>
           <Image
-            style={{ width: 250, height: 120, resizeMode: "contain" }}
+            style={{ width: '50%', height: 120, resizeMode: "contain" }}
             source={require(`${imagePath}/question-4.png`)}
           />
         </View>
@@ -341,7 +344,7 @@ function FirstActivity() {
                 height: 90,
               }}
             >
-              <Text style={{ fontSize: 90, fontWeight: "bold" }}>
+              <Text style={{ fontSize: 22, fontWeight: "bold" }}>
                 5 + 5 = 10
               </Text>
               {answer4 == "a" && (
@@ -364,7 +367,7 @@ function FirstActivity() {
                 height: 90,
               }}
             >
-              <Text style={{ fontSize: 90, fontWeight: "bold" }}>
+              <Text style={{ fontSize: 22, fontWeight: "bold" }}>
                 2 + 5 = 7
               </Text>
               {answer4 == "b" && (
@@ -406,7 +409,7 @@ function FirstActivity() {
             Bilangin, pagsamahin at piliin ang tamang sagot.
           </Text>
           <Image
-            style={{ width: 250, height: 120, resizeMode: "contain" }}
+            style={{ width: '50%', height: 120, resizeMode: "contain" }}
             source={require(`${imagePath}/question-5.png`)}
           />
         </View>
@@ -423,7 +426,7 @@ function FirstActivity() {
                 height: 90,
               }}
             >
-              <Text style={{ fontSize: 90, fontWeight: "bold" }}>
+              <Text style={{ fontSize: 22, fontWeight: "bold" }}>
                 5 + 2 = 7
               </Text>
               {answer5 == "a" && (
@@ -446,7 +449,7 @@ function FirstActivity() {
                 height: 90,
               }}
             >
-              <Text style={{ fontSize: 90, fontWeight: "bold" }}>
+              <Text style={{ fontSize: 22, fontWeight: "bold" }}>
                 3 + 5 = 8
               </Text>
               {answer5 == "b" && (
@@ -522,14 +525,25 @@ function FirstActivity() {
     renderQuestion = <ShowResult />;
   }
 
-  return <View style={styles.container}>{renderQuestion}</View>;
+  return (
+    <SafeAreaView>
+      <ScrollView style={{
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height
+      }}>
+        <View style={[styles.container, {
+          width: Dimensions.get('window').width,
+          height: Dimensions.get('window').height
+        }]}>{renderQuestion}</View>
+      </ScrollView>
+    </SafeAreaView>
+  );
 }
 
 export default FirstActivity;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: "#fff",
   },
   video: {

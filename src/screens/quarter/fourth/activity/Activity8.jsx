@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import {
+  SafeAreaView,
+  ScrollView,
+  Dimensions,
   View,
   Text,
   StyleSheet,
@@ -62,8 +65,10 @@ function FirstActivity() {
 
   const storeData = async () => {
     try {
-      await AsyncStorage.setItem("@quarter4", JSON.stringify(12.5));
-      Updates.reloadAsync();
+      const value = await AsyncStorage.getItem("@quarter4");
+      const total = Number(value) + 12.5;
+      if(total >= 100) return;
+      await AsyncStorage.setItem("@quarter4", JSON.stringify(total));
     } catch (e) {
       // saving error
     }
@@ -84,7 +89,7 @@ function FirstActivity() {
             Select the correct hour and minute of a clock
           </Text>
           <Image
-            style={{ width: 180, height: 180, marginTop: 20 }}
+            style={{ width: '50%', height: 180, marginTop: 20, resizeMode: 'contain' }}
             source={require(`${imagePath}/question-1.png`)}
           />
         </View>
@@ -180,7 +185,7 @@ function FirstActivity() {
             Select the correct hour and minute of a clock
           </Text>
           <Image
-            style={{ width: 180, height: 180, marginTop: 20 }}
+            style={{ width: '50%', height: 180, marginTop: 20, resizeMode: 'contain' }}
             source={require(`${imagePath}/question-2.png`)}
           />
         </View>
@@ -276,7 +281,7 @@ function FirstActivity() {
             Select the correct hour and minute of a clock
           </Text>
           <Image
-            style={{ width: 180, height: 180, marginTop: 20 }}
+            style={{ width: '50%', height: 180, marginTop: 20, resizeMode: 'contain' }}
             source={require(`${imagePath}/question-3.png`)}
           />
         </View>
@@ -372,7 +377,7 @@ function FirstActivity() {
             Select the correct hour and minute of a clock
           </Text>
           <Image
-            style={{ width: 180, height: 180, marginTop: 20 }}
+            style={{ width: '50%', height: 180, marginTop: 20, resizeMode: 'contain' }}
             source={require(`${imagePath}/question-4.png`)}
           />
         </View>
@@ -468,7 +473,7 @@ function FirstActivity() {
             Select the correct hour and minute of a clock
           </Text>
           <Image
-            style={{ width: 180, height: 180, marginTop: 20 }}
+            style={{ width: '50%', height: 180, marginTop: 20, resizeMode: 'contain' }}
             source={require(`${imagePath}/question-5.png`)}
           />
         </View>
@@ -598,14 +603,25 @@ function FirstActivity() {
     renderQuestion = <ShowResult />;
   }
 
-  return <View style={styles.container}>{renderQuestion}</View>;
+  return (
+    <SafeAreaView>
+      <ScrollView style={{
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height
+      }}>
+        <View style={[styles.container, {
+          width: Dimensions.get('window').width,
+          height: Dimensions.get('window').height
+        }]}>{renderQuestion}</View>
+      </ScrollView>
+    </SafeAreaView>
+  );
 }
 
 export default FirstActivity;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: "#fff",
   },
   video: {
