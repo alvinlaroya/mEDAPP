@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
+  SafeAreaView,
+  ScrollView,
+  Dimensions,
   View,
   Text,
   StyleSheet,
@@ -66,8 +69,8 @@ function FirstActivity() {
     try {
       const value = await AsyncStorage.getItem("@quarter1");
       const total = Number(value) + 50;
+      if(total >= 100) return;
       await AsyncStorage.setItem("@quarter1", JSON.stringify(total));
-      Updates.reloadAsync();
     } catch (e) {
       // saving error
     }
@@ -88,7 +91,7 @@ function FirstActivity() {
             Piliin sa mga larawan ang kapareho ng hugis na ito
           </Text>
           <Image
-            style={{ width: 120, height: 120 }}
+            style={{ width: '50%', height: 120, resizeMode: 'contain' }}
             source={require(`${imagePath}/question-1.png`)}
           />
         </View>
@@ -102,7 +105,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 120, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/answer-1.png`)}
               />
               {answer1 == "a" && (
@@ -125,7 +128,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 130, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/answer-2.png`)}
               />
               {answer1 == "b" && (
@@ -148,7 +151,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 120, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/answer-3.png`)}
               />
               {answer1 == "c" && (
@@ -190,7 +193,7 @@ function FirstActivity() {
             Piliin sa mga larawan ang kapareho ng hugis na ito
           </Text>
           <Image
-            style={{ width: 120, height: 120 }}
+            style={{ width: '50%', height: 120, resizeMode: 'contain' }}
             source={require(`${imagePath}/question-2.png`)}
           />
         </View>
@@ -204,7 +207,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 130, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/answer-1.png`)}
               />
               {answer2 == "a" && (
@@ -227,7 +230,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 120, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/answer-3.png`)}
               />
               {answer2 == "b" && (
@@ -250,7 +253,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 120, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/answer-2.png`)}
               />
               {answer2 == "c" && (
@@ -292,7 +295,7 @@ function FirstActivity() {
             Piliin sa mga larawan ang kapareho ng hugis na ito
           </Text>
           <Image
-            style={{ width: 120, height: 120 }}
+            style={{ width: '50%', height: 120, resizeMode: 'contain' }}
             source={require(`${imagePath}/question-3.png`)}
           />
         </View>
@@ -309,7 +312,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 120, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/answer-3.png`)}
               />
               {answer3 == "a" && (
@@ -329,7 +332,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 130, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/answer-1.png`)}
               />
               {answer3 == "b" && (
@@ -352,7 +355,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 120, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/answer-2.png`)}
               />
               {answer3 == "c" && (
@@ -394,7 +397,7 @@ function FirstActivity() {
             Piliin sa mga larawan ang kapareho ng hugis na ito
           </Text>
           <Image
-            style={{ width: 120, height: 120 }}
+            style={{ width: '50%', height: 120, resizeMode: 'contain' }}
             source={require(`${imagePath}/question-4.png`)}
           />
         </View>
@@ -411,7 +414,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 120, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/answer-1.png`)}
               />
               {answer4 == "a" && (
@@ -431,7 +434,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 130, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/answer-4.png`)}
               />
               {answer4 == "b" && (
@@ -454,7 +457,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 120, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/answer-5.png`)}
               />
               {answer4 == "c" && (
@@ -496,7 +499,7 @@ function FirstActivity() {
             Piliin sa mga larawan ang kapareho ng hugis na ito
           </Text>
           <Image
-            style={{ width: 120, height: 120 }}
+            style={{ width: '50%', height: 120, resizeMode: 'contain' }}
             source={require(`${imagePath}/question-5.png`)}
           />
         </View>
@@ -513,7 +516,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 120, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/answer-5.png`)}
               />
               {answer5 == "a" && (
@@ -533,7 +536,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 130, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/answer-3.png`)}
               />
               {answer5 == "b" && (
@@ -556,7 +559,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 120, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/answer-4.png`)}
               />
               {answer5 == "c" && (
@@ -632,14 +635,23 @@ function FirstActivity() {
     renderQuestion = <ShowResult />;
   }
 
-  return <View style={styles.container}>{renderQuestion}</View>;
+  return (
+    <SafeAreaView>
+      <ScrollView style={{
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height
+      }}>
+        <View style={[styles.container, {width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height}]}>{renderQuestion}</View>
+      </ScrollView>
+    </SafeAreaView>
+  )
 }
 
 export default FirstActivity;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: "#fff",
   },
   video: {

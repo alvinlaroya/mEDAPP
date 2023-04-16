@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import {
+  SafeAreaView,
+  ScrollView,
+  Dimensions,
   View,
   Text,
   StyleSheet,
@@ -66,8 +69,8 @@ function FirstActivity() {
     try {
       const value = await AsyncStorage.getItem("@quarter3");
       const total = Number(value) + 33.3;
+      if(total >= 100) return;
       await AsyncStorage.setItem("@quarter3", JSON.stringify(total));
-      Updates.reloadAsync();
     } catch (e) {
       // saving error
     }
@@ -88,7 +91,7 @@ function FirstActivity() {
             Bilangin ang sumusunod na larawan at piliin ang tamang sagot.
           </Text>
           <Image
-            style={{ width: 230, height: 230, resizeMode: "contain" }}
+            style={{ width: '50%', height: 230, resizeMode: "contain" }}
             source={require(`${imagePath}/question-1.png`)}
           />
         </View>
@@ -101,7 +104,7 @@ function FirstActivity() {
                 justifyContent: "space-between",
               }}
             >
-              <Text style={{ fontSize: 90, fontWeight: "bold" }}>7</Text>
+              <Text style={{ fontSize: 22, fontWeight: "bold" }}>7</Text>
               {answer1 == "a" && (
                 <Image
                   style={{ width: 60, height: 60 }}
@@ -112,7 +115,7 @@ function FirstActivity() {
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => setAnswer1("b")}
-            style={{ marginTop: 30 }}
+            style={{ marginTop: 60 }}
           >
             <View
               style={{
@@ -121,7 +124,7 @@ function FirstActivity() {
                 justifyContent: "space-between",
               }}
             >
-              <Text style={{ fontSize: 90, fontWeight: "bold" }}>5</Text>
+              <Text style={{ fontSize: 22, fontWeight: "bold" }}>5</Text>
               {answer1 == "b" && (
                 <Image
                   style={{ width: 60, height: 60 }}
@@ -161,7 +164,7 @@ function FirstActivity() {
             Bilangin ang sumusunod na larawan at piliin ang tamang sagot.
           </Text>
           <Image
-            style={{ width: 230, height: 230, resizeMode: "contain" }}
+            style={{ width: '50%', height: 230, resizeMode: "contain" }}
             source={require(`${imagePath}/question-2.png`)}
           />
         </View>
@@ -174,7 +177,7 @@ function FirstActivity() {
                 justifyContent: "space-between",
               }}
             >
-              <Text style={{ fontSize: 90, fontWeight: "bold" }}>9</Text>
+              <Text style={{ fontSize: 22, fontWeight: "bold" }}>9</Text>
               {answer2 == "a" && (
                 <Image
                   style={{ width: 60, height: 60 }}
@@ -185,7 +188,7 @@ function FirstActivity() {
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => setAnswer2("b")}
-            style={{ marginTop: 30 }}
+            style={{ marginTop: 60 }}
           >
             <View
               style={{
@@ -194,7 +197,7 @@ function FirstActivity() {
                 justifyContent: "space-between",
               }}
             >
-              <Text style={{ fontSize: 90, fontWeight: "bold" }}>8</Text>
+              <Text style={{ fontSize: 22, fontWeight: "bold" }}>8</Text>
               {answer2 == "b" && (
                 <Image
                   style={{ width: 60, height: 60 }}
@@ -234,14 +237,14 @@ function FirstActivity() {
             Bilangin ang sumusunod na larawan at piliin ang tamang sagot.
           </Text>
           <Image
-            style={{ width: 230, height: 230, resizeMode: "contain" }}
+            style={{ width: '50%', height: 230, resizeMode: "contain" }}
             source={require(`${imagePath}/question-3.png`)}
           />
         </View>
         <View style={[styles.container, { padding: 20 }]}>
           <TouchableOpacity
             onPress={() => setAnswer3("a")}
-            style={{ marginTop: 30 }}
+            style={{ marginTop: 60 }}
           >
             <View
               style={{
@@ -250,7 +253,7 @@ function FirstActivity() {
                 justifyContent: "space-between",
               }}
             >
-              <Text style={{ fontSize: 90, fontWeight: "bold" }}>3</Text>
+              <Text style={{ fontSize: 22, fontWeight: "bold" }}>3</Text>
               {answer3 == "a" && (
                 <Image
                   style={{ width: 60, height: 60 }}
@@ -259,7 +262,7 @@ function FirstActivity() {
               )}
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => setAnswer3("b")}>
+          <TouchableOpacity onPress={() => setAnswer3("b")} style={{ marginTop: 60 }}>
             <View
               style={{
                 flexDirection: "row",
@@ -267,7 +270,7 @@ function FirstActivity() {
                 justifyContent: "space-between",
               }}
             >
-              <Text style={{ fontSize: 90, fontWeight: "bold" }}>4</Text>
+              <Text style={{ fontSize: 22, fontWeight: "bold" }}>4</Text>
               {answer3 == "b" && (
                 <Image
                   style={{ width: 60, height: 60 }}
@@ -307,14 +310,14 @@ function FirstActivity() {
             Bilangin ang sumusunod na larawan at piliin ang tamang sagot.
           </Text>
           <Image
-            style={{ width: 230, height: 230, resizeMode: "contain" }}
+            style={{ width: '50%', height: 230, resizeMode: "contain" }}
             source={require(`${imagePath}/question-4.png`)}
           />
         </View>
         <View style={[styles.container, { padding: 20 }]}>
           <TouchableOpacity
             onPress={() => setAnswer4("a")}
-            style={{ marginTop: 30 }}
+            style={{ marginTop: 60 }}
           >
             <View
               style={{
@@ -323,7 +326,7 @@ function FirstActivity() {
                 justifyContent: "space-between",
               }}
             >
-              <Text style={{ fontSize: 90, fontWeight: "bold" }}>2</Text>
+              <Text style={{ fontSize: 22, fontWeight: "bold" }}>2</Text>
               {answer4 == "a" && (
                 <Image
                   style={{ width: 60, height: 60 }}
@@ -332,7 +335,7 @@ function FirstActivity() {
               )}
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => setAnswer4("b")}>
+          <TouchableOpacity onPress={() => setAnswer4("b")} style={{ marginTop: 60 }}>
             <View
               style={{
                 flexDirection: "row",
@@ -340,7 +343,7 @@ function FirstActivity() {
                 justifyContent: "space-between",
               }}
             >
-              <Text style={{ fontSize: 90, fontWeight: "bold" }}>5</Text>
+              <Text style={{ fontSize: 22, fontWeight: "bold" }}>5</Text>
               {answer4 == "b" && (
                 <Image
                   style={{ width: 60, height: 60 }}
@@ -380,14 +383,14 @@ function FirstActivity() {
             Bilangin ang sumusunod na larawan at piliin ang tamang sagot.
           </Text>
           <Image
-            style={{ width: 230, height: 230, resizeMode: "contain" }}
+            style={{ width: '50%', height: 230, resizeMode: "contain" }}
             source={require(`${imagePath}/question-5.png`)}
           />
         </View>
         <View style={[styles.container, { padding: 20 }]}>
           <TouchableOpacity
             onPress={() => setAnswer5("a")}
-            style={{ marginTop: 30 }}
+            style={{ marginTop: 60 }}
           >
             <View
               style={{
@@ -396,7 +399,7 @@ function FirstActivity() {
                 justifyContent: "space-between",
               }}
             >
-              <Text style={{ fontSize: 90, fontWeight: "bold" }}>6</Text>
+              <Text style={{ fontSize: 22, fontWeight: "bold" }}>6</Text>
               {answer5 == "a" && (
                 <Image
                   style={{ width: 60, height: 60 }}
@@ -405,7 +408,7 @@ function FirstActivity() {
               )}
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => setAnswer5("b")}>
+          <TouchableOpacity onPress={() => setAnswer5("b")} style={{ marginTop: 60 }}>
             <View
               style={{
                 flexDirection: "row",
@@ -413,7 +416,7 @@ function FirstActivity() {
                 justifyContent: "space-between",
               }}
             >
-              <Text style={{ fontSize: 90, fontWeight: "bold" }}>3</Text>
+              <Text style={{ fontSize: 22, fontWeight: "bold" }}>3</Text>
               {answer5 == "b" && (
                 <Image
                   style={{ width: 60, height: 60 }}
@@ -487,14 +490,25 @@ function FirstActivity() {
     renderQuestion = <ShowResult />;
   }
 
-  return <View style={styles.container}>{renderQuestion}</View>;
+  return (
+    <SafeAreaView>
+      <ScrollView style={{
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height
+      }}>
+        <View style={[styles.container, {
+          width: Dimensions.get('window').width,
+          height: Dimensions.get('window').height
+        }]}>{renderQuestion}</View>
+      </ScrollView>
+    </SafeAreaView>
+  );
 }
 
 export default FirstActivity;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: "#fff",
   },
   video: {

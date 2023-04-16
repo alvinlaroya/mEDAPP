@@ -60,13 +60,13 @@ function FirstActivity() {
       />
       <View style={{ padding: 10 }}>
         <Button
-          icon="play"
           mode="contained"
           style={{ height: 50, justifyContent: "center" }}
           buttonColor="green"
-          onPress={() => navigation.navigate("Activity6")}
+          onPress={() => console.log("Pressed")}
+          disabled
         >
-          Start Activity
+          No Available Activity
         </Button>
       </View>
     </View>

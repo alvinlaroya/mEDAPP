@@ -53,17 +53,17 @@ function FirstActivity() {
         resizeMode="contain"
         isLooping
       />
-      {/* <View style={{ padding: 10 }}>
+      <View style={{ padding: 10 }}>
         <Button
-          icon="play"
           mode="contained"
           style={{ height: 50, justifyContent: "center" }}
           buttonColor="green"
           onPress={() => console.log("Pressed")}
+          disabled
         >
-          Start Activity
+          No Available Activity
         </Button>
-      </View> */}
+      </View>
     </View>
   ) : (
     <View style={[styles.container, { padding: 10 }]}>

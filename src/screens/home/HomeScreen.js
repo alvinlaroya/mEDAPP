@@ -13,6 +13,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 // components
 
 
+/* EXPORTING FUNCTIONAL COMPONENR FOR MAIN SCREEN/DASHBOARD */
 const imagePath = "../../../assets/image"
 
 const App = () => {
@@ -206,6 +207,10 @@ const App = () => {
   );
 };
 
+/* END OF EXPORTING FUNCTIONAL COMPONENR FOR MAIN SCREEN/DASHBOARD */
+
+
+/* DEFINING STYLES FOR COMPONENT */
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -262,5 +267,6 @@ const styles = StyleSheet.create({
     elevation: 10
   }
 });
+/* DEFINING STYLES FOR COMPONENT */
 
 export default App;

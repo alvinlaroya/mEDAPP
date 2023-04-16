@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
+  SafeAreaView,
+  ScrollView,
   View,
   Text,
   StyleSheet,
   TouchableOpacity,
   Image,
   ImageBackground,
+  Dimensions
 } from "react-native";
 import { Button } from "react-native-paper";
 import * as Speech from "expo-speech";
@@ -66,8 +69,8 @@ function FirstActivity() {
     try {
       const value = await AsyncStorage.getItem("@quarter1");
       const total = Number(value) + 50;
+      if(total >= 100) return;
       await AsyncStorage.setItem("@quarter1", JSON.stringify(total));
-      Updates.reloadAsync();
     } catch (e) {
       // saving error
     }
@@ -96,7 +99,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 120, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/circle.png`)}
               />
               {answer1 == "a" && (
@@ -119,7 +122,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 130, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/triangle.png`)}
               />
               {answer1 == "b" && (
@@ -142,7 +145,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 120, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/square.png`)}
               />
               {answer1 == "c" && (
@@ -192,7 +195,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 130, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/circle.png`)}
               />
               {answer2 == "a" && (
@@ -215,7 +218,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 120, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/square.png`)}
               />
               {answer2 == "b" && (
@@ -238,7 +241,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 120, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/triangle.png`)}
               />
               {answer2 == "c" && (
@@ -291,7 +294,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 120, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/square.png`)}
               />
               {answer3 == "a" && (
@@ -311,7 +314,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 130, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/triangle.png`)}
               />
               {answer3 == "b" && (
@@ -334,7 +337,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 120, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/circle.png`)}
               />
               {answer3 == "c" && (
@@ -387,7 +390,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 120, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/square.png`)}
               />
               {answer4 == "a" && (
@@ -407,7 +410,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 130, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/star.png`)}
               />
               {answer4 == "b" && (
@@ -430,7 +433,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 120, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/circle.png`)}
               />
               {answer4 == "c" && (
@@ -483,7 +486,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 120, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/heart.png`)}
               />
               {answer5 == "a" && (
@@ -503,7 +506,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 130, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/star.png`)}
               />
               {answer5 == "b" && (
@@ -526,7 +529,7 @@ function FirstActivity() {
               }}
             >
               <Image
-                style={{ width: 120, height: 120 }}
+                style={{ width: '50%', height: 120, resizeMode: 'contain' }}
                 source={require(`${imagePath}/circle.png`)}
               />
               {answer5 == "c" && (
@@ -602,14 +605,23 @@ function FirstActivity() {
     renderQuestion = <ShowResult />;
   }
 
-  return <View style={styles.container}>{renderQuestion}</View>;
+  return (
+    <SafeAreaView>
+      <ScrollView style={{
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height
+      }}>
+        <View style={[styles.container, {width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height}]}>{renderQuestion}</View>
+      </ScrollView>
+    </SafeAreaView>
+  );
 }
 
 export default FirstActivity;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: "#fff",
   },
   video: {

@@ -1,13 +1,20 @@
+/* IMPORTING MODULES AND LIBRARIES FROM REACT NATIVE */
 import React, { useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { AppRegistry } from "react-native";
 import { Provider as PaperProvider } from "react-native-paper";
 import { name as appName } from "./app.json";
+/* END OF IMPORTING MODULES AND LIBRARIES FROM REACT NATIVE */
 
+
+/* IMPORTING LIBRARY FOR NAVIGATING SCREENS */
 // react navigation
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+/* END OF IMPORTING LIBRARY FOR NAVIGATING SCREENS */
 
+
+/* IMPORTING SCREEN FOR MODULES FILES */
 // screens
 import HomeScreen from "./src/screens/home/HomeScreen";
 import FirstActivity from "./src/screens/quarter/first/FirstActivity";
@@ -25,8 +32,10 @@ import TwelveActivity from "./src/screens/quarter/fourth/TwelveActivity";
 import ThirteenthActivity from "./src/screens/quarter/fourth/ThirteenthActivity";
 import FourteenthActivity from "./src/screens/quarter/fourth/FourteenthActivity";
 import FifteenthActivity from "./src/screens/quarter/fourth/FifteenthActivity";
+/* END OF IMPORTING SCREEN FOR MODULES FILES */
 
 
+/* IMPORTING SCREEN FOR ACTIVITIES FILES */
 // activity screens
 import Activity1 from "./src/screens/quarter/first/activity/Activity1.jsx";
 import Activity2 from "./src/screens/quarter/first/activity/Activity2.jsx";
@@ -42,10 +51,16 @@ import Activity12 from "./src/screens/quarter/fourth/activity/Activity12.jsx";
 import Activity13 from "./src/screens/quarter/fourth/activity/Activity13.jsx";
 import Activity14 from "./src/screens/quarter/fourth/activity/Activity14.jsx";
 import Activity15 from "./src/screens/quarter/fourth/activity/Activity15.jsx";
+/* END OF IMPORTING SCREEN FOR ACTIVITIES FILES */
 
+
+/* DECLARING INSTANCES FOR SCREEN NAVIGATION */
 // react stack navigation initialize
 const Stack = createNativeStackNavigator();
+/* END OF DECLARING INSTANCES FOR SCREEN NAVIGATION */
 
+
+/* EXPORTING JAVASCRIPT FUNCTIONAL COMPONENT FOR ENTRY SCREEN POINT */
 export default function Main() {
   useEffect(() => {
     console.log("Init");
@@ -215,5 +230,8 @@ export default function Main() {
     </>
   );
 }
+/* ND EXPORTING JAVASCRIPT FUNCTIONAL COMPONENT FOR ENTRY SCREEN POINT */
 
+/* REGISTERING THE MAIN ENTRY POINT COMPONENT */
 AppRegistry.registerComponent(appName, () => Main);
+/* END OF REGISTERING THE MAIN ENTRY POINT COMPONENT */
