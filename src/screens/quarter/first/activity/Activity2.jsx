@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
   View,
   Text,
@@ -11,6 +12,8 @@ import { Button } from "react-native-paper";
 import * as Speech from "expo-speech";
 
 const imagePath = "../../../../../assets/image/activity/act2";
+
+import * as Updates from "expo-updates";
 
 // react navigation
 import { useNavigation } from "@react-navigation/native";
@@ -28,11 +31,11 @@ function FirstActivity() {
 
   useEffect(() => {
     const thingToSay = [
-      "select the partner of this shape?",
-      "select the partner of this shape?",
-      "select the partner of this shape?",
-      "select the partner of this shape?",
-      "select the partner of this shape?",
+      "Piliin sa mga larawan ang kapareho ng hugis na ito",
+      "Piliin sa mga larawan ang kapareho ng hugis na ito?",
+      "Piliin sa mga larawan ang kapareho ng hugis na ito?",
+      "Piliin sa mga larawan ang kapareho ng hugis na ito?",
+      "Piliin sa mga larawan ang kapareho ng hugis na ito?",
     ];
     Speech.speak(thingToSay[step - 1]);
 
@@ -54,8 +57,21 @@ function FirstActivity() {
         total++;
       }
       setScore(total);
+      Speech.speak(`You got ${total} over 5 score`);
+      storeData();
     }
   }, [step]);
+
+  const storeData = async () => {
+    try {
+      const value = await AsyncStorage.getItem("@quarter1");
+      const total = Number(value) + 50;
+      await AsyncStorage.setItem("@quarter1", JSON.stringify(total));
+      Updates.reloadAsync();
+    } catch (e) {
+      // saving error
+    }
+  };
 
   const answerErrorHandler = () => {
     alert("Please select your answer");
@@ -68,7 +84,9 @@ function FirstActivity() {
         <View
           style={{ padding: 20, borderBottomWidth: 1, borderColor: "black" }}
         >
-          <Text style={{ fontSize: 19 }}>Select the partner of this shape</Text>
+          <Text style={{ fontSize: 19 }}>
+            Piliin sa mga larawan ang kapareho ng hugis na ito
+          </Text>
           <Image
             style={{ width: 120, height: 120 }}
             source={require(`${imagePath}/question-1.png`)}
@@ -168,7 +186,9 @@ function FirstActivity() {
         <View
           style={{ padding: 20, borderBottomWidth: 1, borderColor: "black" }}
         >
-          <Text style={{ fontSize: 19 }}>Select the partner of this shape</Text>
+          <Text style={{ fontSize: 19 }}>
+            Piliin sa mga larawan ang kapareho ng hugis na ito
+          </Text>
           <Image
             style={{ width: 120, height: 120 }}
             source={require(`${imagePath}/question-2.png`)}
@@ -268,7 +288,9 @@ function FirstActivity() {
         <View
           style={{ padding: 20, borderBottomWidth: 1, borderColor: "black" }}
         >
-          <Text style={{ fontSize: 19 }}>Select the partner of this shape</Text>
+          <Text style={{ fontSize: 19 }}>
+            Piliin sa mga larawan ang kapareho ng hugis na ito
+          </Text>
           <Image
             style={{ width: 120, height: 120 }}
             source={require(`${imagePath}/question-3.png`)}
@@ -368,7 +390,9 @@ function FirstActivity() {
         <View
           style={{ padding: 20, borderBottomWidth: 1, borderColor: "black" }}
         >
-          <Text style={{ fontSize: 19 }}>Select the partner of this shape</Text>
+          <Text style={{ fontSize: 19 }}>
+            Piliin sa mga larawan ang kapareho ng hugis na ito
+          </Text>
           <Image
             style={{ width: 120, height: 120 }}
             source={require(`${imagePath}/question-4.png`)}
@@ -468,7 +492,9 @@ function FirstActivity() {
         <View
           style={{ padding: 20, borderBottomWidth: 1, borderColor: "black" }}
         >
-          <Text style={{ fontSize: 19 }}>Select the partner of this shape</Text>
+          <Text style={{ fontSize: 19 }}>
+            Piliin sa mga larawan ang kapareho ng hugis na ito
+          </Text>
           <Image
             style={{ width: 120, height: 120 }}
             source={require(`${imagePath}/question-5.png`)}

@@ -53,7 +53,7 @@ function FirstActivity() {
         resizeMode="contain"
         isLooping
       />
-      <View style={{ padding: 10 }}>
+      {/* <View style={{ padding: 10 }}>
         <Button
           icon="play"
           mode="contained"
@@ -63,7 +63,7 @@ function FirstActivity() {
         >
           Start Activity
         </Button>
-      </View>
+      </View> */}
     </View>
   ) : (
     <View style={[styles.container, { padding: 10 }]}>

@@ -6,7 +6,12 @@ import * as Speech from "expo-speech";
 
 const videoFile = require("./../../../../assets/videos/quantity_of_a_set.mp4");
 
+// react navigation
+import { useNavigation } from "@react-navigation/native";
+
 function FirstActivity() {
+  const navigation = useNavigation();
+
   const video = React.useRef(null);
   const [checkKey, setCheckKey] = useState(false);
   const [actKey, setActKey] = useState("");
@@ -19,7 +24,7 @@ function FirstActivity() {
   }, [checkKey]);
 
   const submitKeyHandler = () => {
-    if (actKey === "medappq2act2") {
+    if (actKey === "medappq2act3") {
       setCheckKey(true);
     } else {
       alert("Invalid Activity Key");
@@ -59,7 +64,7 @@ function FirstActivity() {
           mode="contained"
           style={{ height: 50, justifyContent: "center" }}
           buttonColor="green"
-          onPress={() => console.log("Pressed")}
+          onPress={() => navigation.navigate("Activity3")}
         >
           Start Activity
         </Button>

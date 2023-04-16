@@ -6,7 +6,12 @@ import * as Speech from "expo-speech";
 
 const videoFile = require("./../../../../assets/videos/add_and_subtact_quantities.mp4");
 
+// react navigation
+import { useNavigation } from "@react-navigation/native";
+
 function FirstActivity() {
+  const navigation = useNavigation();
+
   const video = React.useRef(null);
   const [checkKey, setCheckKey] = useState(false);
   const [actKey, setActKey] = useState("");
@@ -59,7 +64,7 @@ function FirstActivity() {
           mode="contained"
           style={{ height: 50, justifyContent: "center" }}
           buttonColor="green"
-          onPress={() => console.log("Pressed")}
+          onPress={() => navigation.navigate("Activity13")}
         >
           Start Activity
         </Button>

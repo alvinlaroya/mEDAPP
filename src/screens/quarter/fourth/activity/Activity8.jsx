@@ -9,7 +9,8 @@ import {
 } from "react-native";
 import { Button } from "react-native-paper";
 import * as Speech from "expo-speech";
-
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as Updates from "expo-updates";
 const imagePath = "../../../../../assets/image/activity/act8";
 
 // react navigation
@@ -54,8 +55,19 @@ function FirstActivity() {
         total++;
       }
       setScore(total);
+      Speech.speak(`You got ${total} over 5 score`);
+      storeData();
     }
   }, [step]);
+
+  const storeData = async () => {
+    try {
+      await AsyncStorage.setItem("@quarter4", JSON.stringify(12.5));
+      Updates.reloadAsync();
+    } catch (e) {
+      // saving error
+    }
+  };
 
   const answerErrorHandler = () => {
     alert("Please select your answer");
@@ -164,7 +176,9 @@ function FirstActivity() {
         <View
           style={{ padding: 20, borderBottomWidth: 1, borderColor: "black" }}
         >
-          <Text style={{ fontSize: 19 }}>Select the partner of this shape</Text>
+          <Text style={{ fontSize: 19 }}>
+            Select the correct hour and minute of a clock
+          </Text>
           <Image
             style={{ width: 180, height: 180, marginTop: 20 }}
             source={require(`${imagePath}/question-2.png`)}
@@ -258,7 +272,9 @@ function FirstActivity() {
         <View
           style={{ padding: 20, borderBottomWidth: 1, borderColor: "black" }}
         >
-          <Text style={{ fontSize: 19 }}>Select the partner of this shape</Text>
+          <Text style={{ fontSize: 19 }}>
+            Select the correct hour and minute of a clock
+          </Text>
           <Image
             style={{ width: 180, height: 180, marginTop: 20 }}
             source={require(`${imagePath}/question-3.png`)}
@@ -352,7 +368,9 @@ function FirstActivity() {
         <View
           style={{ padding: 20, borderBottomWidth: 1, borderColor: "black" }}
         >
-          <Text style={{ fontSize: 19 }}>Select the partner of this shape</Text>
+          <Text style={{ fontSize: 19 }}>
+            Select the correct hour and minute of a clock
+          </Text>
           <Image
             style={{ width: 180, height: 180, marginTop: 20 }}
             source={require(`${imagePath}/question-4.png`)}
@@ -446,7 +464,9 @@ function FirstActivity() {
         <View
           style={{ padding: 20, borderBottomWidth: 1, borderColor: "black" }}
         >
-          <Text style={{ fontSize: 19 }}>Select the partner of this shape</Text>
+          <Text style={{ fontSize: 19 }}>
+            Select the correct hour and minute of a clock
+          </Text>
           <Image
             style={{ width: 180, height: 180, marginTop: 20 }}
             source={require(`${imagePath}/question-5.png`)}

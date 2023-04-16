@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
   View,
   Text,
@@ -11,6 +12,8 @@ import { Button } from "react-native-paper";
 import * as Speech from "expo-speech";
 
 const imagePath = "../../../../../assets/image/activity/act1";
+
+import * as Updates from "expo-updates";
 
 // react navigation
 import { useNavigation } from "@react-navigation/native";
@@ -28,11 +31,11 @@ function FirstActivity() {
 
   useEffect(() => {
     const thingToSay = [
-      "which of the images has a circle shape?",
-      "which of the images has a triangle shape?",
-      "which of the images has a square shape?",
-      "which of the images has a star shape?",
-      "which of the images has a heart shape?",
+      "Alin sa mga larawan ang mayroong bilog na hugis?",
+      "Alin sa mga larawan ang mayroong tatsulok na hugis?",
+      "Alin sa mga larawan ang mayroong parisukat na hugis?",
+      "Alin sa mga larawan ang mayroong bituwin na hugis?",
+      "Alin sa mga larawan ang mayroong puso na hugis?",
     ];
     Speech.speak(thingToSay[step - 1]);
 
@@ -54,8 +57,21 @@ function FirstActivity() {
         total++;
       }
       setScore(total);
+      Speech.speak(`You got ${total} over 5 score`);
+      storeData();
     }
   }, [step]);
+
+  const storeData = async () => {
+    try {
+      const value = await AsyncStorage.getItem("@quarter1");
+      const total = Number(value) + 50;
+      await AsyncStorage.setItem("@quarter1", JSON.stringify(total));
+      Updates.reloadAsync();
+    } catch (e) {
+      // saving error
+    }
+  };
 
   const answerErrorHandler = () => {
     alert("Please select your answer");
@@ -67,7 +83,7 @@ function FirstActivity() {
       <View style={{ padding: 20, flex: 1 }}>
         <View style={{ padding: 20 }}>
           <Text style={{ fontSize: 19 }}>
-            Which of the images has a circle shape?
+            Alin sa mga larawan ang mayroong bilog na hugis?
           </Text>
         </View>
         <View style={[styles.container, { padding: 20 }]}>
@@ -163,7 +179,7 @@ function FirstActivity() {
       <View style={{ padding: 20, flex: 1 }}>
         <View style={{ padding: 20 }}>
           <Text style={{ fontSize: 19 }}>
-            Which of the images has a triangle shape?
+            Alin sa mga larawan ang mayroong tatsulok na hugis?
           </Text>
         </View>
         <View style={[styles.container, { padding: 20 }]}>
@@ -259,7 +275,7 @@ function FirstActivity() {
       <View style={{ padding: 20, flex: 1 }}>
         <View style={{ padding: 20 }}>
           <Text style={{ fontSize: 19 }}>
-            Which of the images has a square shape?
+            Alin sa mga larawan ang mayroong parisukat na hugis?
           </Text>
         </View>
         <View style={[styles.container, { padding: 20 }]}>
@@ -355,7 +371,7 @@ function FirstActivity() {
       <View style={{ padding: 20, flex: 1 }}>
         <View style={{ padding: 20 }}>
           <Text style={{ fontSize: 19 }}>
-            Which of the images has a star shape?
+            Alin sa mga larawan ang mayroong bituwin na hugis?
           </Text>
         </View>
         <View style={[styles.container, { padding: 20 }]}>
@@ -451,7 +467,7 @@ function FirstActivity() {
       <View style={{ padding: 20, flex: 1 }}>
         <View style={{ padding: 20 }}>
           <Text style={{ fontSize: 19 }}>
-            Which of the images has a heart shape?
+            Alin sa mga larawan ang mayroong puso na hugis?
           </Text>
         </View>
         <View style={[styles.container, { padding: 20 }]}>

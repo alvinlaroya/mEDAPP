@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { SafeAreaView, StyleSheet, Text, ScrollView, View, Image, TouchableOpacity } from "react-native";
 
@@ -8,6 +8,8 @@ import { useNavigation } from "@react-navigation/native";
 // react native paper
 import { Appbar, IconButton, List } from "react-native-paper";
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 // components
 
 
@@ -15,6 +17,30 @@ const imagePath = "../../../assets/image"
 
 const App = () => {
   const navigation = useNavigation();
+  const [q1, setQ1] = useState(0);
+  const [q2, setQ2] = useState(0);
+  const [q3, setQ3] = useState(0);
+  const [q4, setQ4] = useState(0);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const valueq1 = await AsyncStorage.getItem('@quarter1');
+        const valueq2 = await AsyncStorage.getItem('@quarter2');
+        const valueq3 = await AsyncStorage.getItem('@quarter3');
+        const valueq4 = await AsyncStorage.getItem('@quarter4');
+
+        setQ1(valueq1 ? valueq1 : 0);
+        setQ2(valueq2 ? valueq2 : 0);
+        setQ3(valueq3 ? valueq3 : 0);
+        setQ4(valueq4 ? valueq4 : 0);
+      } catch (e) {
+        // error reading value
+      }
+    }
+
+    getData();
+  }, [])
 
   return (
     <SafeAreaView style={styles.container}>
@@ -30,7 +56,7 @@ const App = () => {
       </Appbar.Header>
       <ScrollView styles={styles.container}>
         <View style={styles.section}>
-          <Text style={styles.quarterTitle}>1st Quarter</Text>
+          <Text style={styles.quarterTitle}>1st Quarter ({q1}%)</Text>
           <View style={styles.quartSection}>
             <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
               <TouchableOpacity onPress={() => navigation.navigate("FirstActivity")}>
@@ -53,7 +79,7 @@ const App = () => {
           </View>
         </View>
         <View style={styles.section}>
-          <Text style={styles.quarterTitle}>2nd Quarter</Text>
+          <Text style={styles.quarterTitle}>2nd Quarter ({q2}%)</Text>
           <View style={styles.quartSection}>
             <TouchableOpacity onPress={() => navigation.navigate("ThirdActivity")}>
               <View>
@@ -66,7 +92,7 @@ const App = () => {
           </View>
         </View>
         <View style={styles.section}>
-          <Text style={styles.quarterTitle}>3rd Quarter</Text>
+          <Text style={styles.quarterTitle}>3rd Quarter ({Math.round(q3)}%)</Text>
           <View style={styles.quartSection}>
             <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
               <TouchableOpacity onPress={() => navigation.navigate("FourthActivity")}>
@@ -105,7 +131,7 @@ const App = () => {
           </View>
         </View>
         <View style={styles.section}>
-          <Text style={styles.quarterTitle}>4th Quarter</Text>
+          <Text style={styles.quarterTitle}>4th Quarter ({q4}%)</Text>
           <View style={styles.quartSection}>
             <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
               <TouchableOpacity onPress={() => navigation.navigate("EighthActivity")}>

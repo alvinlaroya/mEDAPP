@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "educational-application-for-pre-school",
-    "slug": "educational-application-for-pre-school",
+    "slug": "medapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -14,9 +14,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.wazaskiller.sicatnotification"
@@ -33,7 +31,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "bc845c64-c3fb-4f08-8cfa-f1b5cda37bda"
+        "projectId": "13905ed3-55c8-4d48-98d3-fa1427dc9dec"
       }
     },
     "owner": "wazaskiller"
