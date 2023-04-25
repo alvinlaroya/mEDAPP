@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import { SafeAreaView, StyleSheet, Text, ScrollView, View, Image, TouchableOpacity } from "react-native";
 
+
 // react navigation
 import { useNavigation } from "@react-navigation/native";
 
@@ -214,7 +215,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "white",
   },
 
   header: {

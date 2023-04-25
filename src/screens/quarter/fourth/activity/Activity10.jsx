@@ -37,7 +37,7 @@ function FirstActivity() {
       "Ano ang nauunang bilang sa kabiyak na pakpak ng paruparo?",
       "Ano ang nauunang bilang sa kabiyak na pakpak ng paruparo?",
       "Piliin ang tamang sagot na naglalaman ng kasunod na bilang na 1, 2, 3, blank",
-      "Piliin ang tamang sagot na naglalaman ng kasunod na bilang na 1, 2, 3, blank",
+      "Piliin ang tamang sagot na naglalaman ng kasunod na bilang na 9, 10, 11, blank",
     ];
     Speech.speak(thingToSay[step - 1]);
 
@@ -68,7 +68,7 @@ function FirstActivity() {
     try {
       const value = await AsyncStorage.getItem("@quarter4");
       const total = Number(value) + 12.5;
-      if(total >= 100) return;
+      if (total > 100) return;
       await AsyncStorage.setItem("@quarter4", JSON.stringify(total));
     } catch (e) {
       // saving error
@@ -90,7 +90,7 @@ function FirstActivity() {
             Ano ang nauunang bilang sa kabiyak na pakpak ng paruparo?
           </Text>
           <Image
-            style={{ width: '50%', height: 120, resizeMode: "contain" }}
+            style={{ width: "50%", height: 120, resizeMode: "contain" }}
             source={require(`${imagePath}/question-1.png`)}
           />
         </View>
@@ -129,7 +129,7 @@ function FirstActivity() {
               {answer1 == "b" && (
                 <Image
                   style={{ width: 60, height: 60 }}
-                  source={require("../../../../../assets/image/check.jpg")}
+                  source={require("../../../../../assets/image/wrong.jpg")}
                 />
               )}
             </View>
@@ -165,7 +165,7 @@ function FirstActivity() {
             Ano ang nauunang bilang sa kabiyak na pakpak ng paruparo?
           </Text>
           <Image
-            style={{ width: '50%', height: 120, resizeMode: "contain" }}
+            style={{ width: "50%", height: 120, resizeMode: "contain" }}
             source={require(`${imagePath}/question-2.png`)}
           />
         </View>
@@ -183,7 +183,7 @@ function FirstActivity() {
               {answer2 == "a" && (
                 <Image
                   style={{ width: 60, height: 60 }}
-                  source={require("../../../../../assets/image/check.jpg")}
+                  source={require("../../../../../assets/image/wrong.jpg")}
                 />
               )}
             </View>
@@ -240,7 +240,7 @@ function FirstActivity() {
             Ano ang nauunang bilang sa kabiyak na pakpak ng paruparo?
           </Text>
           <Image
-            style={{ width: '50%', height: 120, resizeMode: "contain" }}
+            style={{ width: "50%", height: 120, resizeMode: "contain" }}
             source={require(`${imagePath}/question-3.png`)}
           />
         </View>
@@ -279,7 +279,7 @@ function FirstActivity() {
               {answer3 == "b" && (
                 <Image
                   style={{ width: 60, height: 60 }}
-                  source={require("../../../../../assets/image/check.jpg")}
+                  source={require("../../../../../assets/image/wrong.jpg")}
                 />
               )}
             </View>
@@ -333,7 +333,7 @@ function FirstActivity() {
               {answer4 == "a" && (
                 <Image
                   style={{ width: 60, height: 60 }}
-                  source={require("../../../../../assets/image/check.jpg")}
+                  source={require("../../../../../assets/image/wrong.jpg")}
                 />
               )}
             </View>
@@ -429,7 +429,7 @@ function FirstActivity() {
               {answer5 == "b" && (
                 <Image
                   style={{ width: 60, height: 60 }}
-                  source={require("../../../../../assets/image/check.jpg")}
+                  source={require("../../../../../assets/image/wrong.jpg")}
                 />
               )}
             </View>
@@ -461,6 +461,55 @@ function FirstActivity() {
         source={require("../../../../../assets/image/comfetti.gif")}
         style={{ flex: 1 }}
       >
+        <View style={{ padding: 20 }}>
+          <View
+            style={{
+              padding: 20,
+              backgroundColor: "rgba(255, 255, 255, 0.8)",
+              borderWidth: 1,
+              borderRadius: 20,
+              borderColor: "black",
+              flexDirection: "row",
+            }}
+          >
+            <View style={{ width: "50%" }}>
+              <Text style={{ fontSize: 20, fontWeight: "bold" }}>
+                Key answers:
+              </Text>
+              <Text style={{ fontSize: 18, marginTop: 15 }}>1. A</Text>
+              <Text style={{ fontSize: 18 }}>2. B</Text>
+              <Text style={{ fontSize: 18 }}>3. A</Text>
+              <Text style={{ fontSize: 18 }}>4. B</Text>
+              <Text style={{ fontSize: 18 }}>5. A</Text>
+            </View>
+            <View style={{ width: "50%" }}>
+              <Text style={{ fontSize: 20, fontWeight: "bold" }}>
+                Your answers:
+              </Text>
+              <Text
+                style={{
+                  fontSize: 18,
+                  marginTop: 15,
+                  textTransform: "uppercase",
+                }}
+              >
+                1. {answer1}
+              </Text>
+              <Text style={{ fontSize: 18, textTransform: "uppercase" }}>
+                2. {answer2}
+              </Text>
+              <Text style={{ fontSize: 18, textTransform: "uppercase" }}>
+                3. {answer3}
+              </Text>
+              <Text style={{ fontSize: 18, textTransform: "uppercase" }}>
+                4. {answer4}
+              </Text>
+              <Text style={{ fontSize: 18, textTransform: "uppercase" }}>
+                5. {answer5}
+              </Text>
+            </View>
+          </View>
+        </View>
         <View style={[{ alignItems: "center", marginTop: 30 }]}>
           <Text style={{ fontSize: 40, fontWeight: "bold" }}>Your Score:</Text>
         </View>
@@ -477,6 +526,23 @@ function FirstActivity() {
             onPress={() => navigation.navigate("Home")}
           >
             Go back to home
+          </Button>
+          <Button
+            icon="restart"
+            mode="contained"
+            style={{ height: 50, justifyContent: "center", marginTop: 5 }}
+            buttonColor="red"
+            onPress={() => {
+              setAnswer1("");
+              setAnswer2("");
+              setAnswer3("");
+              setAnswer4("");
+              setAnswer5("");
+              setScore(0);
+              setStep(1);
+            }}
+          >
+            Try Again
           </Button>
         </View>
       </ImageBackground>
@@ -501,17 +567,27 @@ function FirstActivity() {
 
   return (
     <SafeAreaView>
-      <ScrollView style={{
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height
-      }}>
-        <View style={[styles.container, {
-          width: Dimensions.get('window').width,
-          height: Dimensions.get('window').height
-        }]}>{renderQuestion}</View>
+      <ScrollView
+        style={{
+          width: Dimensions.get("window").width,
+          height: Dimensions.get("window").height,
+          backgroundColor: "white",
+        }}
+      >
+        <View
+          style={[
+            styles.container,
+            {
+              width: Dimensions.get("window").width,
+              paddingBottom: 40,
+            },
+          ]}
+        >
+          {renderQuestion}
+        </View>
       </ScrollView>
     </SafeAreaView>
-  )
+  );
 }
 
 export default FirstActivity;
