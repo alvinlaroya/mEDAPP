@@ -7,7 +7,7 @@ import { SafeAreaView, StyleSheet, Text, ScrollView, View, Image, TouchableOpaci
 import { useNavigation } from "@react-navigation/native";
 
 // react native paper
-import { Appbar, IconButton, List } from "react-native-paper";
+import { Appbar, Button, List } from "react-native-paper";
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -19,6 +19,7 @@ const imagePath = "../../../assets/image"
 
 const App = () => {
   const navigation = useNavigation();
+
   const [q1, setQ1] = useState(0);
   const [q2, setQ2] = useState(0);
   const [q3, setQ3] = useState(0);
@@ -48,7 +49,7 @@ const App = () => {
     <SafeAreaView style={styles.container}>
       <Appbar.Header style={styles.header}>
         <Appbar.Content
-          title="Main Activity"
+          title="m-EdApp"
           titleStyle={{
             color: "black",
             fontSize: 19,
@@ -58,149 +59,42 @@ const App = () => {
       </Appbar.Header>
       <ScrollView styles={styles.container}>
         <View style={styles.section}>
-          <Text style={styles.quarterTitle}>1st Quarter ({q1}%)</Text>
-          <View style={styles.quartSection}>
-            <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-              <TouchableOpacity onPress={() => navigation.navigate("FirstActivity")}>
-                <View style={{ width: 160 }}>
-                  <View style={styles.card}>
-                    <Image style={styles.cardImage} source={require(`${imagePath}/first_quarter_week3.jpg`)} />
-                  </View>
-                  <Text style={{ marginTop: 10 }}>Sort and classify objects</Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate("SecondActivity")}>
-                <View style={{ marginLeft: 20, width: 160 }}>
-                  <View style={styles.card}>
-                    <Image style={styles.cardImage} source={require(`${imagePath}/first_quarter_week6_2.jpg`)} />
-                  </View>
-                  <Text style={{ marginTop: 10 }}>Recognize symmetry</Text>
-                </View>
-              </TouchableOpacity>
-            </ScrollView>
+          <View>
+            <View style={{ display: 'flex', alignItems: 'flex-end', padding: 10 }}>
+              <Text style={{ fontSize: 20 }}>2 Items</Text>
+            </View>
+            <Button mode="outlined" style={{ justifyContent: 'center' }} labelStyle={{ color: 'black', fontSize: 22, fontWeight: 'bold', height: 50, marginBottom: -10, marginTop: 25 }} onPress={() => navigation.navigate("Quarter1")}>
+              First Quarter ({q1}%)
+            </Button>
           </View>
-        </View>
-        <View style={styles.section}>
-          <Text style={styles.quarterTitle}>2nd Quarter ({q2}%)</Text>
-          <View style={styles.quartSection}>
-            <TouchableOpacity onPress={() => navigation.navigate("ThirdActivity")}>
-              <View>
-                <View style={styles.fullCard}>
-                  <Image style={styles.cardImage} source={require(`${imagePath}/second_quarter_week5.jpg`)} />
-                </View>
-                <Text style={{ marginTop: 10 }}>Quantity of a set of objects</Text>
-              </View>
-            </TouchableOpacity>
+          <View style={{ marginTop: 10 }}>
+            <View style={{ display: 'flex', alignItems: 'flex-end', padding: 10 }}>
+              <Text style={{ fontSize: 20 }}>1 Items</Text>
+            </View>
+            <Button mode="outlined" style={{ justifyContent: 'center' }} labelStyle={{ color: 'black', fontSize: 22, fontWeight: 'bold', height: 50, marginBottom: -10, marginTop: 25 }} onPress={() => navigation.navigate("Quarter2")}>
+              Second Quarter ({q2}%)
+            </Button>
           </View>
-        </View>
-        <View style={styles.section}>
-          <Text style={styles.quarterTitle}>3rd Quarter ({Math.round(q3)}%)</Text>
-          <View style={styles.quartSection}>
-            <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-              <TouchableOpacity onPress={() => navigation.navigate("FourthActivity")}>
-                <View style={{ width: 160 }}>
-                  <View style={styles.card}>
-                    <Image style={styles.cardImage} source={require(`${imagePath}/third_quarter_week1.png`)} />
-                  </View>
-                  <Text style={{ marginTop: 10 }}>Days in a week, Months in a year</Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate("FifthActivity")}>
-                <View style={{ marginLeft: 20, width: 160 }}>
-                  <View style={styles.card}>
-                    <Image style={styles.cardImage} source={require(`${imagePath}/third_quarter_week5.jpg`)} />
-                  </View>
-                  <Text style={{ marginTop: 10 }}>Sequence of Events</Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate("SixthActivity")}>
-                <View style={{ marginLeft: 20, width: 160 }}>
-                  <View style={styles.card}>
-                    <Image style={styles.cardImage} source={require(`${imagePath}/third_quarter_week5_2.jpg`)} />
-                  </View>
-                  <Text style={{ marginTop: 10 }}>Sequence of size or length</Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate("SeventhActivity")}>
-                <View style={{ marginLeft: 20, width: 160 }}>
-                  <View style={styles.card}>
-                    <Image style={styles.cardImage} source={require(`${imagePath}/third_quarter_week8.jpeg`)} />
-                  </View>
-                  <Text style={{ marginTop: 10 }}>Quantity of a set of objects</Text>
-                </View>
-              </TouchableOpacity>
-            </ScrollView>
+          <View style={{ marginTop: 10 }}>
+            <View style={{ display: 'flex', alignItems: 'flex-end', padding: 10 }}>
+              <Text style={{ fontSize: 20 }}>4 Items</Text>
+            </View>
+            <Button mode="outlined" style={{ justifyContent: 'center' }} labelStyle={{ color: 'black', fontSize: 22, fontWeight: 'bold', height: 50, marginBottom: -10, marginTop: 25 }} onPress={() => navigation.navigate("Quarter3")}>
+              Third Quarter ({q3}%)
+            </Button>
           </View>
-        </View>
-        <View style={styles.section}>
-          <Text style={styles.quarterTitle}>4th Quarter ({q4}%)</Text>
-          <View style={styles.quartSection}>
-            <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-              <TouchableOpacity onPress={() => navigation.navigate("EighthActivity")}>
-                <View style={{ width: 160 }}>
-                  <View style={styles.card}>
-                    <Image style={styles.cardImage} source={require(`${imagePath}/fourth_quarter_week6.jpg`)} />
-                  </View>
-                  <Text style={{ marginTop: 10 }}>Name the hour and minute hands in a clock</Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate("NinthActivity")}>
-                <View style={{ marginLeft: 20, width: 160 }}>
-                  <View style={styles.card}>
-                    <Image style={styles.cardImage} source={require(`${imagePath}/fourth_quarter_week6_2.jpg`)} />
-                  </View>
-                  <Text style={{ marginTop: 10 }}>Tell time by the hour</Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate("TenthActivity")}>
-                <View style={{ marginLeft: 20, width: 160 }}>
-                  <View style={styles.card}>
-                    <Image style={styles.cardImage} source={require(`${imagePath}/fourth_quarter_week7.png`)} />
-                  </View>
-                  <Text style={{ marginTop: 10 }}>Identify the numbers</Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate("EleventhActivity")}>
-                <View style={{ marginLeft: 20, width: 160 }}>
-                  <View style={styles.card}>
-                    <Image style={styles.cardImage} source={require(`${imagePath}/fourth_quarter_week7_2.jpeg`)} />
-                  </View>
-                  <Text style={{ marginTop: 10 }}>Arrange three numbers</Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate("TwelveActivity")}>
-                <View style={{ marginLeft: 20, width: 160 }}>
-                  <View style={styles.card}>
-                    <Image style={styles.cardImage} source={require(`${imagePath}/fourth_quarter_week8.jpeg`)} />
-                  </View>
-                  <Text style={{ marginTop: 10 }}>Recognize the word</Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate("ThirteenthActivity")}>
-                <View style={{ marginLeft: 20, width: 160 }}>
-                  <View style={styles.card}>
-                    <Image style={styles.cardImage} source={require(`${imagePath}/fourth_quarter_week9.png`)} />
-                  </View>
-                  <Text style={{ marginTop: 10 }}>Add quantities up to 10</Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate("FourteenthActivity")}>
-                <View style={{ marginLeft: 20, width: 160 }}>
-                  <View style={styles.card}>
-                    <Image style={styles.cardImage} source={require(`${imagePath}/fourth_quarter_week9_2.png`)} />
-                  </View>
-                  <Text style={{ marginTop: 10 }}>Subtract quantities up to 10</Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate("FifteenthActivity")}>
-                <View style={{ marginLeft: 20, width: 160 }}>
-                  <View style={styles.card}>
-                    <Image style={styles.cardImage} source={require(`${imagePath}/fourth_quarter_week10.png`)} />
-                  </View>
-                  <Text style={{ marginTop: 10 }}>Addition and Subtraction number sentence</Text>
-                </View>
-              </TouchableOpacity>
-            </ScrollView>
+          <View style={{ marginTop: 10 }}>
+            <View style={{ display: 'flex', alignItems: 'flex-end', padding: 10 }}>
+              <Text style={{ fontSize: 20 }}>8 Items</Text>
+            </View>
+            <Button mode="outlined" style={{ justifyContent: 'center' }} labelStyle={{ color: 'black', fontSize: 22, fontWeight: 'bold', height: 50, marginBottom: -10, marginTop: 25 }} onPress={() => navigation.navigate("Quarter4")}>
+              Fourth Quarter ({q4}%)
+            </Button>
+          </View>
+          <View style={{ marginTop: 15 }}>
+            <Button mode="outlined" style={{ justifyContent: 'center' }} labelStyle={{ color: 'black', fontSize: 22, fontWeight: 'bold', height: 50, marginBottom: -10, marginTop: 25 }} onPress={() => navigation.navigate("Disclaimer")}>
+              Disclaimer
+            </Button>
           </View>
         </View>
       </ScrollView>
@@ -224,49 +118,9 @@ const styles = StyleSheet.create({
 
   section: {
     padding: 15,
-    marginTop: 10
+    marginTop: 10,
+    justifyContent: 'center',
   },
-
-  titleContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-
-  card: {
-    height: 190,
-    width: 160,
-    borderRadius: 15,
-    elevation: 3,
-    backgroundColor: "white",
-    marginTop: 5,
-    marginBottom: 5
-  },
-
-  fullCard: {
-    height: 190,
-    width: "100%",
-    borderRadius: 15,
-    elevation: 3,
-    backgroundColor: "white",
-    marginTop: 5,
-    marginBottom: 5
-  },
-
-  quarterTitle: {
-    fontSize: 18,
-    fontWeight: 'bold'
-  },
-
-  quartSection: {
-    marginTop: 15
-  },
-
-  cardImage: {
-    width: "100%",
-    height: "100%",
-    borderRadius: 15,
-    elevation: 10
-  }
 });
 /* DEFINING STYLES FOR COMPONENT */
 

@@ -17,6 +17,13 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 /* IMPORTING SCREEN FOR MODULES FILES */
 // screens
 import HomeScreen from "./src/screens/home/HomeScreen";
+import Disclaimer from "./src/screens/home/Disclaimer";
+
+import Quarter1 from "./src/screens/home/Quarter1";
+import Quarter2 from "./src/screens/home/Quarter2";
+import Quarter3 from "./src/screens/home/Quarter3";
+import Quarter4 from "./src/screens/home/Quarter4";
+
 import FirstActivity from "./src/screens/quarter/first/FirstActivity";
 import SecondActivity from "./src/screens/quarter/first/SecondActivity";
 import ThirdActivity from "./src/screens/quarter/second/ThirdActivity";
@@ -76,6 +83,31 @@ export default function Main() {
               name="Home"
               component={HomeScreen}
               options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Disclaimer"
+              component={Disclaimer}
+              options={{ headerShown: true }}
+            />
+            <Stack.Screen
+              name="Quarter1"
+              component={Quarter1}
+              options={{ headerShown: true }}
+            />
+            <Stack.Screen
+              name="Quarter2"
+              component={Quarter2}
+              options={{ headerShown: true }}
+            />
+            <Stack.Screen
+              name="Quarter3"
+              component={Quarter3}
+              options={{ headerShown: true }}
+            />
+            <Stack.Screen
+              name="Quarter4"
+              component={Quarter4}
+              options={{ headerShown: true }}
             />
             <Stack.Screen
               name="FirstActivity"

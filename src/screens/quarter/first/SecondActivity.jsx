@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 import { Button, TextInput } from "react-native-paper";
 import { Video } from "expo-av";
 import * as Speech from "expo-speech";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // react navigation
 import { useNavigation } from "@react-navigation/native";
@@ -64,7 +65,17 @@ function FirstActivity() {
           mode="contained"
           style={{ height: 50, justifyContent: "center" }}
           buttonColor="green"
-          onPress={() => navigation.navigate("Activity2")}
+          onPress={async () => {
+            navigation.navigate("Activity2");
+            try {
+              const value = await AsyncStorage.getItem("@act2");
+              const total = Number(value) + 1;
+              if (total > 100) return;
+              await AsyncStorage.setItem("@act2", JSON.stringify(total));
+            } catch (e) {
+              // saving error
+            }
+          }}
         >
           Start Activity
         </Button>

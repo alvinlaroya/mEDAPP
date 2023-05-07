@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 import { Button, TextInput } from "react-native-paper";
 import { Video } from "expo-av";
 import * as Speech from "expo-speech";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const videoFile = require("./../../../../assets/videos/identify_the_number.mp4");
 
@@ -64,7 +65,17 @@ function FirstActivity() {
           mode="contained"
           style={{ height: 50, justifyContent: "center" }}
           buttonColor="green"
-          onPress={() => navigation.navigate("Activity10")}
+          onPress={async () => {
+            navigation.navigate("Activity10");
+            try {
+              const value = await AsyncStorage.getItem("@act10");
+              const total = Number(value) + 1;
+              if (total > 100) return;
+              await AsyncStorage.setItem("@act10", JSON.stringify(total));
+            } catch (e) {
+              // saving error
+            }
+          }}
         >
           Start Activity
         </Button>

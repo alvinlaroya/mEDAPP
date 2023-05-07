@@ -30,16 +30,232 @@ function FirstActivity() {
   const [score, setScore] = useState(0);
   const [step, setStep] = useState(1);
 
-  useEffect(() => {
-    const thingToSay = [
-      "Pagsamahin, bilangin at piliin ang tamang sagot kung ilan sila lahat.",
-      "Pagsamahin, bilangin at piliin ang tamang sagot kung ilan sila lahat.",
-      "Pagsamahin, bilangin at piliin ang tamang sagot kung ilan sila lahat.",
-      "Pagsamahin, bilangin at piliin ang tamang sagot kung ilan sila lahat.",
-      "Pagsamahin, bilangin at piliin ang tamang sagot kung ilan sila lahat.",
-    ];
-    Speech.speak(thingToSay[step - 1]);
+  const [choices1, setChoices1] = useState([
+    <TouchableOpacity onPress={() => setAnswer1("a")}>
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          height: 130,
+        }}
+      >
+        <Image
+          style={{
+            width: "60%",
+            height: 130,
+            borderWidth: 2,
+            borderColor: "black",
+            resizeMode: "contain",
+          }}
+          source={require(`${imagePath}/q1-answer1.png`)}
+        />
+      </View>
+    </TouchableOpacity>,
+    <TouchableOpacity onPress={() => setAnswer1("b")} style={{ marginTop: 30 }}>
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          height: 130,
+        }}
+      >
+        <Image
+          style={{
+            width: "60%",
+            height: 130,
+            borderWidth: 2,
+            borderColor: "black",
+            resizeMode: "contain",
+          }}
+          source={require(`${imagePath}/q1-answer2.png`)}
+        />
+      </View>
+    </TouchableOpacity>,
+  ]);
 
+  const [choices2, setChoices2] = useState([
+    <TouchableOpacity onPress={() => setAnswer2("a")}>
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          height: 130,
+        }}
+      >
+        <Image
+          style={{
+            width: "60%",
+            height: 130,
+            borderWidth: 2,
+            borderColor: "black",
+            resizeMode: "contain",
+          }}
+          source={require(`${imagePath}/q2-answer1.png`)}
+        />
+      </View>
+    </TouchableOpacity>,
+    <TouchableOpacity onPress={() => setAnswer2("b")} style={{ marginTop: 30 }}>
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          height: 130,
+        }}
+      >
+        <Image
+          style={{
+            width: "60%",
+            height: 130,
+            borderWidth: 2,
+            borderColor: "black",
+            resizeMode: "contain",
+          }}
+          source={require(`${imagePath}/q2-answer2.png`)}
+        />
+      </View>
+    </TouchableOpacity>,
+  ]);
+
+  const [choices3, setChoices3] = useState([
+    <TouchableOpacity onPress={() => setAnswer3("a")} style={{ marginTop: 30 }}>
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          height: 130,
+        }}
+      >
+        <Image
+          style={{
+            width: "60%",
+            height: 130,
+            borderWidth: 2,
+            borderColor: "black",
+            resizeMode: "contain",
+          }}
+          source={require(`${imagePath}/q3-answer1.png`)}
+        />
+      </View>
+    </TouchableOpacity>,
+    <TouchableOpacity onPress={() => setAnswer3("b")} style={{ marginTop: 30 }}>
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          height: 130,
+        }}
+      >
+        <Image
+          style={{
+            width: "60%",
+            height: 130,
+            borderWidth: 2,
+            borderColor: "black",
+            resizeMode: "contain",
+          }}
+          source={require(`${imagePath}/q3-answer2.png`)}
+        />
+      </View>
+    </TouchableOpacity>,
+  ]);
+
+  const [choices4, setChoices4] = useState([
+    <TouchableOpacity onPress={() => setAnswer4("a")} style={{ marginTop: 30 }}>
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          height: 130,
+        }}
+      >
+        <Image
+          style={{
+            width: "60%",
+            height: 130,
+            borderWidth: 2,
+            borderColor: "black",
+            resizeMode: "contain",
+          }}
+          source={require(`${imagePath}/q4-answer1.png`)}
+        />
+      </View>
+    </TouchableOpacity>,
+    <TouchableOpacity onPress={() => setAnswer4("b")} style={{ marginTop: 30 }}>
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          height: 130,
+        }}
+      >
+        <Image
+          style={{
+            width: "60%",
+            height: 130,
+            borderWidth: 2,
+            borderColor: "black",
+            resizeMode: "contain",
+          }}
+          source={require(`${imagePath}/q4-answer2.png`)}
+        />
+      </View>
+    </TouchableOpacity>,
+  ]);
+
+  const [choices5, setChoices5] = useState([
+    <TouchableOpacity onPress={() => setAnswer5("a")} style={{ marginTop: 30 }}>
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          height: 130,
+        }}
+      >
+        <Image
+          style={{
+            width: "60%",
+            height: 130,
+            borderWidth: 2,
+            borderColor: "black",
+            resizeMode: "contain",
+          }}
+          source={require(`${imagePath}/q5-answer1.png`)}
+        />
+      </View>
+    </TouchableOpacity>,
+    <TouchableOpacity onPress={() => setAnswer5("b")} style={{ marginTop: 30 }}>
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          height: 130,
+        }}
+      >
+        <Image
+          style={{
+            width: "60%",
+            height: 130,
+            borderWidth: 2,
+            borderColor: "black",
+            resizeMode: "contain",
+          }}
+          source={require(`${imagePath}/q5-answer2.png`)}
+        />
+      </View>
+    </TouchableOpacity>,
+  ]);
+
+  useEffect(() => {
     if (step === 6) {
       var total = 0;
       if (answer1 == "a") {
@@ -63,6 +279,44 @@ function FirstActivity() {
     }
   }, [step]);
 
+  const randomizeChoices = async () => {
+    for (let i = choices1.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * i);
+      let k = choices1[i];
+      let k2 = choices2[i];
+      let k3 = choices3[i];
+      let k4 = choices4[i];
+      let k5 = choices5[i];
+
+      choices1[i] = choices1[j];
+      choices2[i] = choices2[j];
+      choices3[i] = choices3[j];
+      choices4[i] = choices4[j];
+      choices5[i] = choices5[j];
+
+      choices1[j] = k;
+      choices2[j] = k2;
+      choices3[j] = k3;
+      choices4[j] = k4;
+      choices5[j] = k5;
+    }
+
+    setChoices1(choices1);
+    setChoices2(choices2);
+    setChoices3(choices3);
+    setChoices4(choices4);
+    setChoices5(choices5);
+
+    try {
+      const value = await AsyncStorage.getItem("@act12");
+      const total = Number(value) + 1;
+      if (total > 100) return;
+      await AsyncStorage.setItem("@act12", JSON.stringify(total));
+    } catch (e) {
+      // saving error
+    }
+  };
+
   const storeData = async () => {
     try {
       const value = await AsyncStorage.getItem("@quarter4");
@@ -72,11 +326,6 @@ function FirstActivity() {
     } catch (e) {
       // saving error
     }
-  };
-
-  const answerErrorHandler = () => {
-    alert("Please select your answer");
-    Speech.speak("Please select your answer");
   };
 
   const Question1 = (props) => {
@@ -95,79 +344,9 @@ function FirstActivity() {
           />
         </View>
         <View style={[styles.container, { padding: 20 }]}>
-          <TouchableOpacity onPress={() => setAnswer1("a")}>
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "space-between",
-                height: 130,
-              }}
-            >
-              <Image
-                style={{
-                  width: "60%",
-                  height: 130,
-                  borderWidth: 2,
-                  borderColor: "black",
-                  resizeMode: "contain",
-                }}
-                source={require(`${imagePath}/q1-answer1.png`)}
-              />
-              {answer1 == "a" && (
-                <Image
-                  style={{ width: 60, height: 60 }}
-                  source={require("../../../../../assets/image/check.jpg")}
-                />
-              )}
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => setAnswer1("b")}
-            style={{ marginTop: 30 }}
-          >
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "space-between",
-                height: 130,
-              }}
-            >
-              <Image
-                style={{
-                  width: "60%",
-                  height: 130,
-                  borderWidth: 2,
-                  borderColor: "black",
-                  resizeMode: "contain",
-                }}
-                source={require(`${imagePath}/q1-answer2.png`)}
-              />
-              {answer1 == "b" && (
-                <Image
-                  style={{ width: 60, height: 60 }}
-                  source={require("../../../../../assets/image/wrong.jpg")}
-                />
-              )}
-            </View>
-          </TouchableOpacity>
-        </View>
-        <View style={{ padding: 10 }}>
-          <Button
-            mode="contained"
-            style={{ height: 50, justifyContent: "center" }}
-            buttonColor="green"
-            onPress={() => {
-              if (answer1 != "") {
-                setStep(2);
-              } else {
-                answerErrorHandler();
-              }
-            }}
-          >
-            Submit Answer
-          </Button>
+          {choices1.map((item, i) => (
+            <View key={i}>{item}</View>
+          ))}
         </View>
       </View>
     );
@@ -189,79 +368,9 @@ function FirstActivity() {
           />
         </View>
         <View style={[styles.container, { padding: 20 }]}>
-          <TouchableOpacity onPress={() => setAnswer2("a")}>
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "space-between",
-                height: 130,
-              }}
-            >
-              <Image
-                style={{
-                  width: "60%",
-                  height: 130,
-                  borderWidth: 2,
-                  borderColor: "black",
-                  resizeMode: "contain",
-                }}
-                source={require(`${imagePath}/q2-answer1.png`)}
-              />
-              {answer2 == "a" && (
-                <Image
-                  style={{ width: 60, height: 60 }}
-                  source={require("../../../../../assets/image/wrong.jpg")}
-                />
-              )}
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => setAnswer2("b")}
-            style={{ marginTop: 30 }}
-          >
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "space-between",
-                height: 130,
-              }}
-            >
-              <Image
-                style={{
-                  width: "60%",
-                  height: 130,
-                  borderWidth: 2,
-                  borderColor: "black",
-                  resizeMode: "contain",
-                }}
-                source={require(`${imagePath}/q2-answer2.png`)}
-              />
-              {answer2 == "b" && (
-                <Image
-                  style={{ width: 60, height: 60 }}
-                  source={require("../../../../../assets/image/check.jpg")}
-                />
-              )}
-            </View>
-          </TouchableOpacity>
-        </View>
-        <View style={{ padding: 10 }}>
-          <Button
-            mode="contained"
-            style={{ height: 50, justifyContent: "center" }}
-            buttonColor="green"
-            onPress={() => {
-              if (answer2 != "") {
-                setStep(3);
-              } else {
-                answerErrorHandler();
-              }
-            }}
-          >
-            Submit Answer
-          </Button>
+          {choices2.map((item, i) => (
+            <View key={i}>{item}</View>
+          ))}
         </View>
       </View>
     );
@@ -283,82 +392,9 @@ function FirstActivity() {
           />
         </View>
         <View style={[styles.container, { padding: 20 }]}>
-          <TouchableOpacity
-            onPress={() => setAnswer3("a")}
-            style={{ marginTop: 30 }}
-          >
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "space-between",
-                height: 130,
-              }}
-            >
-              <Image
-                style={{
-                  width: "60%",
-                  height: 130,
-                  borderWidth: 2,
-                  borderColor: "black",
-                  resizeMode: "contain",
-                }}
-                source={require(`${imagePath}/q3-answer1.png`)}
-              />
-              {answer3 == "a" && (
-                <Image
-                  style={{ width: 60, height: 60 }}
-                  source={require("../../../../../assets/image/check.jpg")}
-                />
-              )}
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => setAnswer3("b")}
-            style={{ marginTop: 30 }}
-          >
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "space-between",
-                height: 130,
-              }}
-            >
-              <Image
-                style={{
-                  width: "60%",
-                  height: 130,
-                  borderWidth: 2,
-                  borderColor: "black",
-                  resizeMode: "contain",
-                }}
-                source={require(`${imagePath}/q3-answer2.png`)}
-              />
-              {answer3 == "b" && (
-                <Image
-                  style={{ width: 60, height: 60 }}
-                  source={require("../../../../../assets/image/wrong.jpg")}
-                />
-              )}
-            </View>
-          </TouchableOpacity>
-        </View>
-        <View style={{ padding: 10 }}>
-          <Button
-            mode="contained"
-            style={{ height: 50, justifyContent: "center" }}
-            buttonColor="green"
-            onPress={() => {
-              if (answer3 != "") {
-                setStep(4);
-              } else {
-                answerErrorHandler();
-              }
-            }}
-          >
-            Submit Answer
-          </Button>
+          {choices3.map((item, i) => (
+            <View key={i}>{item}</View>
+          ))}
         </View>
       </View>
     );
@@ -376,82 +412,9 @@ function FirstActivity() {
           </Text>
         </View>
         <View style={[styles.container, { padding: 20 }]}>
-          <TouchableOpacity
-            onPress={() => setAnswer4("a")}
-            style={{ marginTop: 30 }}
-          >
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "space-between",
-                height: 130,
-              }}
-            >
-              <Image
-                style={{
-                  width: "60%",
-                  height: 130,
-                  borderWidth: 2,
-                  borderColor: "black",
-                  resizeMode: "contain",
-                }}
-                source={require(`${imagePath}/q4-answer1.png`)}
-              />
-              {answer4 == "a" && (
-                <Image
-                  style={{ width: 60, height: 60 }}
-                  source={require("../../../../../assets/image/check.jpg")}
-                />
-              )}
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => setAnswer4("b")}
-            style={{ marginTop: 30 }}
-          >
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "space-between",
-                height: 130,
-              }}
-            >
-              <Image
-                style={{
-                  width: "60%",
-                  height: 130,
-                  borderWidth: 2,
-                  borderColor: "black",
-                  resizeMode: "contain",
-                }}
-                source={require(`${imagePath}/q4-answer2.png`)}
-              />
-              {answer4 == "b" && (
-                <Image
-                  style={{ width: 60, height: 60 }}
-                  source={require("../../../../../assets/image/wrong.jpg")}
-                />
-              )}
-            </View>
-          </TouchableOpacity>
-        </View>
-        <View style={{ padding: 10 }}>
-          <Button
-            mode="contained"
-            style={{ height: 50, justifyContent: "center" }}
-            buttonColor="green"
-            onPress={() => {
-              if (answer4 != "") {
-                setStep(5);
-              } else {
-                answerErrorHandler();
-              }
-            }}
-          >
-            Submit Answer
-          </Button>
+          {choices4.map((item, i) => (
+            <View key={i}>{item}</View>
+          ))}
         </View>
       </View>
     );
@@ -469,82 +432,9 @@ function FirstActivity() {
           </Text>
         </View>
         <View style={[styles.container, { padding: 20 }]}>
-          <TouchableOpacity
-            onPress={() => setAnswer5("a")}
-            style={{ marginTop: 30 }}
-          >
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "space-between",
-                height: 130,
-              }}
-            >
-              <Image
-                style={{
-                  width: "60%",
-                  height: 130,
-                  borderWidth: 2,
-                  borderColor: "black",
-                  resizeMode: "contain",
-                }}
-                source={require(`${imagePath}/q5-answer1.png`)}
-              />
-              {answer5 == "a" && (
-                <Image
-                  style={{ width: 60, height: 60 }}
-                  source={require("../../../../../assets/image/check.jpg")}
-                />
-              )}
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => setAnswer5("b")}
-            style={{ marginTop: 30 }}
-          >
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "space-between",
-                height: 130,
-              }}
-            >
-              <Image
-                style={{
-                  width: "60%",
-                  height: 130,
-                  borderWidth: 2,
-                  borderColor: "black",
-                  resizeMode: "contain",
-                }}
-                source={require(`${imagePath}/q5-answer2.png`)}
-              />
-              {answer5 == "b" && (
-                <Image
-                  style={{ width: 60, height: 60 }}
-                  source={require("../../../../../assets/image/wrong.jpg")}
-                />
-              )}
-            </View>
-          </TouchableOpacity>
-        </View>
-        <View style={{ padding: 10 }}>
-          <Button
-            mode="contained"
-            style={{ height: 50, justifyContent: "center" }}
-            buttonColor="green"
-            onPress={() => {
-              if (answer5 != "") {
-                setStep(6);
-              } else {
-                answerErrorHandler();
-              }
-            }}
-          >
-            Finish
-          </Button>
+          {choices5.map((item, i) => (
+            <View key={i}>{item}</View>
+          ))}
         </View>
       </View>
     );
@@ -569,7 +459,7 @@ function FirstActivity() {
           >
             <View style={{ width: "50%" }}>
               <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-                Key answers:
+                Correct answers:
               </Text>
               <Text style={{ fontSize: 18, marginTop: 15 }}>1. A</Text>
               <Text style={{ fontSize: 18 }}>2. B</Text>
@@ -635,6 +525,7 @@ function FirstActivity() {
               setAnswer5("");
               setScore(0);
               setStep(1);
+              randomizeChoices();
             }}
           >
             Try Again
