@@ -52,7 +52,7 @@ const App = () => {
           title="m-EdApp"
           titleStyle={{
             color: "black",
-            fontSize: 19,
+            fontSize: 18,
             fontWeight: 'bold',
           }}
         />
@@ -63,7 +63,7 @@ const App = () => {
             <View style={{ display: 'flex', alignItems: 'flex-end', padding: 10 }}>
               <Text style={{ fontSize: 20 }}>2 Items</Text>
             </View>
-            <Button mode="outlined" style={{ justifyContent: 'center' }} labelStyle={{ color: 'black', fontSize: 22, fontWeight: 'bold', height: 50, marginBottom: -10, marginTop: 25 }} onPress={() => navigation.navigate("Quarter1")}>
+            <Button mode="outlined" style={{ justifyContent: 'center' }} labelStyle={{ color: 'black', fontSize: 18, fontWeight: 'bold', height: 50, marginBottom: -10, marginTop: 25 }} onPress={() => navigation.navigate("Quarter1")}>
               First Quarter ({q1}%)
             </Button>
           </View>
@@ -71,7 +71,7 @@ const App = () => {
             <View style={{ display: 'flex', alignItems: 'flex-end', padding: 10 }}>
               <Text style={{ fontSize: 20 }}>1 Items</Text>
             </View>
-            <Button mode="outlined" style={{ justifyContent: 'center' }} labelStyle={{ color: 'black', fontSize: 22, fontWeight: 'bold', height: 50, marginBottom: -10, marginTop: 25 }} onPress={() => navigation.navigate("Quarter2")}>
+            <Button mode="outlined" style={{ justifyContent: 'center' }} labelStyle={{ color: 'black', fontSize: 18, fontWeight: 'bold', height: 50, marginBottom: -10, marginTop: 25 }} onPress={() => navigation.navigate("Quarter2")}>
               Second Quarter ({q2}%)
             </Button>
           </View>
@@ -79,7 +79,7 @@ const App = () => {
             <View style={{ display: 'flex', alignItems: 'flex-end', padding: 10 }}>
               <Text style={{ fontSize: 20 }}>4 Items</Text>
             </View>
-            <Button mode="outlined" style={{ justifyContent: 'center' }} labelStyle={{ color: 'black', fontSize: 22, fontWeight: 'bold', height: 50, marginBottom: -10, marginTop: 25 }} onPress={() => navigation.navigate("Quarter3")}>
+            <Button mode="outlined" style={{ justifyContent: 'center' }} labelStyle={{ color: 'black', fontSize: 18, fontWeight: 'bold', height: 50, marginBottom: -10, marginTop: 25 }} onPress={() => navigation.navigate("Quarter3")}>
               Third Quarter ({q3}%)
             </Button>
           </View>
@@ -87,12 +87,12 @@ const App = () => {
             <View style={{ display: 'flex', alignItems: 'flex-end', padding: 10 }}>
               <Text style={{ fontSize: 20 }}>8 Items</Text>
             </View>
-            <Button mode="outlined" style={{ justifyContent: 'center' }} labelStyle={{ color: 'black', fontSize: 22, fontWeight: 'bold', height: 50, marginBottom: -10, marginTop: 25 }} onPress={() => navigation.navigate("Quarter4")}>
+            <Button mode="outlined" style={{ justifyContent: 'center' }} labelStyle={{ color: 'black', fontSize: 18, fontWeight: 'bold', height: 50, marginBottom: -10, marginTop: 25 }} onPress={() => navigation.navigate("Quarter4")}>
               Fourth Quarter ({q4}%)
             </Button>
           </View>
           <View style={{ marginTop: 15 }}>
-            <Button mode="outlined" style={{ justifyContent: 'center' }} labelStyle={{ color: 'black', fontSize: 22, fontWeight: 'bold', height: 50, marginBottom: -10, marginTop: 25 }} onPress={() => navigation.navigate("Disclaimer")}>
+            <Button mode="outlined" style={{ justifyContent: 'center' }} labelStyle={{ color: 'black', fontSize: 18, fontWeight: 'bold', height: 50, marginBottom: -10, marginTop: 25 }} onPress={() => navigation.navigate("Disclaimer")}>
               Disclaimer
             </Button>
           </View>

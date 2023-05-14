@@ -6,7 +6,7 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity,
+  TouchableHighlight,
   Image,
   ImageBackground,
 } from "react-native";
@@ -32,10 +32,12 @@ function FirstActivity() {
   const [step, setStep] = useState(1);
 
   const [choices1, setChoices1] = useState([
-    <TouchableOpacity
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer1("a");
         Speech.speak("Sorry, you choose a wrong answer");
+        setStep(2);
       }}
     >
       <View
@@ -48,8 +50,9 @@ function FirstActivity() {
       >
         <Text style={{ fontSize: 22, fontWeight: "bold" }}>5</Text>
       </View>
-    </TouchableOpacity>,
-    <TouchableOpacity
+    </TouchableHighlight>,
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer1("b");
         Speech.speak("Good Job!");
@@ -67,11 +70,13 @@ function FirstActivity() {
       >
         <Text style={{ fontSize: 22, fontWeight: "bold" }}>6</Text>
       </View>
-    </TouchableOpacity>,
-    <TouchableOpacity
+    </TouchableHighlight>,
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer1("c");
         Speech.speak("Sorry, you choose a wrong answer");
+        setStep(2);
       }}
       style={{ marginTop: 30 }}
     >
@@ -85,14 +90,16 @@ function FirstActivity() {
       >
         <Text style={{ fontSize: 22, fontWeight: "bold" }}>7</Text>
       </View>
-    </TouchableOpacity>,
+    </TouchableHighlight>,
   ]);
 
   const [choices2, setChoices2] = useState([
-    <TouchableOpacity
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer2("a");
         Speech.speak("Sorry, you choose a wrong answer");
+        setStep(3);
       }}
     >
       <View
@@ -105,11 +112,13 @@ function FirstActivity() {
       >
         <Text style={{ fontSize: 22, fontWeight: "bold" }}>10</Text>
       </View>
-    </TouchableOpacity>,
-    <TouchableOpacity
+    </TouchableHighlight>,
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer2("b");
         Speech.speak("Sorry, you choose a wrong answer");
+        setStep(3);
       }}
       style={{ marginTop: 30 }}
     >
@@ -123,8 +132,9 @@ function FirstActivity() {
       >
         <Text style={{ fontSize: 22, fontWeight: "bold" }}>8</Text>
       </View>
-    </TouchableOpacity>,
-    <TouchableOpacity
+    </TouchableHighlight>,
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer2("c");
         Speech.speak("Good Job!");
@@ -142,11 +152,12 @@ function FirstActivity() {
       >
         <Text style={{ fontSize: 22, fontWeight: "bold" }}>9</Text>
       </View>
-    </TouchableOpacity>,
+    </TouchableHighlight>,
   ]);
 
   const [choices3, setChoices3] = useState([
-    <TouchableOpacity
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer3("a");
         Speech.speak("Good Job!");
@@ -164,11 +175,13 @@ function FirstActivity() {
       >
         <Text style={{ fontSize: 22, fontWeight: "bold" }}>7</Text>
       </View>
-    </TouchableOpacity>,
-    <TouchableOpacity
+    </TouchableHighlight>,
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer3("b");
         Speech.speak("Sorry, you choose a wrong answer");
+        setStep(4);
       }}
       style={{ marginTop: 30 }}
     >
@@ -182,11 +195,13 @@ function FirstActivity() {
       >
         <Text style={{ fontSize: 22, fontWeight: "bold" }}>8</Text>
       </View>
-    </TouchableOpacity>,
-    <TouchableOpacity
+    </TouchableHighlight>,
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer3("c");
         Speech.speak("Sorry, you choose a wrong answer");
+        setStep(4);
       }}
       style={{ marginTop: 30 }}
     >
@@ -200,14 +215,16 @@ function FirstActivity() {
       >
         <Text style={{ fontSize: 22, fontWeight: "bold" }}>9</Text>
       </View>
-    </TouchableOpacity>,
+    </TouchableHighlight>,
   ]);
 
   const [choices4, setChoices4] = useState([
-    <TouchableOpacity
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer4("a");
         Speech.speak("Sorry, you choose a wrong answer");
+        setStep(5);
       }}
       style={{ marginTop: 30 }}
     >
@@ -221,11 +238,13 @@ function FirstActivity() {
       >
         <Text style={{ fontSize: 22, fontWeight: "bold" }}>3</Text>
       </View>
-    </TouchableOpacity>,
-    <TouchableOpacity
+    </TouchableHighlight>,
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer4("b");
         Speech.speak("Sorry, you choose a wrong answer");
+        setStep(5);
       }}
       style={{ marginTop: 30 }}
     >
@@ -239,8 +258,9 @@ function FirstActivity() {
       >
         <Text style={{ fontSize: 22, fontWeight: "bold" }}>4</Text>
       </View>
-    </TouchableOpacity>,
-    <TouchableOpacity
+    </TouchableHighlight>,
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer4("c");
         Speech.speak("Good Job!");
@@ -258,11 +278,12 @@ function FirstActivity() {
       >
         <Text style={{ fontSize: 22, fontWeight: "bold" }}>5</Text>
       </View>
-    </TouchableOpacity>,
+    </TouchableHighlight>,
   ]);
 
   const [choices5, setChoices5] = useState([
-    <TouchableOpacity
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer5("a");
         Speech.speak("Good Job!");
@@ -280,11 +301,13 @@ function FirstActivity() {
       >
         <Text style={{ fontSize: 22, fontWeight: "bold" }}>10</Text>
       </View>
-    </TouchableOpacity>,
-    <TouchableOpacity
+    </TouchableHighlight>,
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer5("b");
         Speech.speak("Sorry, you choose a wrong answer");
+        setStep(6);
       }}
       style={{ marginTop: 30 }}
     >
@@ -298,11 +321,13 @@ function FirstActivity() {
       >
         <Text style={{ fontSize: 22, fontWeight: "bold" }}>9</Text>
       </View>
-    </TouchableOpacity>,
-    <TouchableOpacity
+    </TouchableHighlight>,
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer5("c");
         Speech.speak("Sorry, you choose a wrong answer");
+        setStep(6);
       }}
       style={{ marginTop: 30 }}
     >
@@ -316,7 +341,7 @@ function FirstActivity() {
       >
         <Text style={{ fontSize: 22, fontWeight: "bold" }}>8</Text>
       </View>
-    </TouchableOpacity>,
+    </TouchableHighlight>,
   ]);
 
   useEffect(() => {

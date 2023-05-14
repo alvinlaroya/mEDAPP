@@ -6,7 +6,7 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity,
+  TouchableHighlight,
   Image,
   ImageBackground,
   Dimensions,
@@ -31,7 +31,8 @@ function FirstActivity() {
   const [step, setStep] = useState(1);
 
   const [choices1, setChoices1] = useState([
-    <TouchableOpacity
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer1("a");
         Speech.speak("Good Job!");
@@ -50,11 +51,13 @@ function FirstActivity() {
           source={require(`${imagePath}/circle.png`)}
         />
       </View>
-    </TouchableOpacity>,
-    <TouchableOpacity
+    </TouchableHighlight>,
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer1("b");
         Speech.speak("Sorry, you choose a wrong answer");
+        setStep(2);
       }}
       style={{ marginTop: 30 }}
     >
@@ -70,11 +73,13 @@ function FirstActivity() {
           source={require(`${imagePath}/triangle.png`)}
         />
       </View>
-    </TouchableOpacity>,
-    <TouchableOpacity
+    </TouchableHighlight>,
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer1("c");
         Speech.speak("Sorry, you choose a wrong answer");
+        setStep(2);
       }}
       style={{ marginTop: 30 }}
     >
@@ -90,14 +95,16 @@ function FirstActivity() {
           source={require(`${imagePath}/square.png`)}
         />
       </View>
-    </TouchableOpacity>,
+    </TouchableHighlight>,
   ]);
 
   const [choices2, setChoices2] = useState([
-    <TouchableOpacity
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer2("a");
         Speech.speak("Sorry, you choose a wrong answer");
+        setStep(3);
       }}
     >
       <View
@@ -112,11 +119,13 @@ function FirstActivity() {
           source={require(`${imagePath}/circle.png`)}
         />
       </View>
-    </TouchableOpacity>,
-    <TouchableOpacity
+    </TouchableHighlight>,
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer2("b");
         Speech.speak("Sorry, you choose a wrong answer");
+        setStep(3);
       }}
       style={{ marginTop: 30 }}
     >
@@ -132,8 +141,9 @@ function FirstActivity() {
           source={require(`${imagePath}/square.png`)}
         />
       </View>
-    </TouchableOpacity>,
-    <TouchableOpacity
+    </TouchableHighlight>,
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer2("c");
         Speech.speak("Good Job!");
@@ -153,11 +163,12 @@ function FirstActivity() {
           source={require(`${imagePath}/triangle.png`)}
         />
       </View>
-    </TouchableOpacity>,
+    </TouchableHighlight>,
   ]);
 
   const [choices3, setChoices3] = useState([
-    <TouchableOpacity
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer3("a");
         Speech.speak("Good Job!");
@@ -177,11 +188,13 @@ function FirstActivity() {
           source={require(`${imagePath}/square.png`)}
         />
       </View>
-    </TouchableOpacity>,
-    <TouchableOpacity
+    </TouchableHighlight>,
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer3("b");
         Speech.speak("Sorry, you choose a wrong answer");
+        setStep(4);
       }}
     >
       <View
@@ -196,11 +209,13 @@ function FirstActivity() {
           source={require(`${imagePath}/triangle.png`)}
         />
       </View>
-    </TouchableOpacity>,
-    <TouchableOpacity
+    </TouchableHighlight>,
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer3("c");
         Speech.speak("Sorry, you choose a wrong answer");
+        setStep(4);
       }}
       style={{ marginTop: 30 }}
     >
@@ -216,14 +231,16 @@ function FirstActivity() {
           source={require(`${imagePath}/circle.png`)}
         />
       </View>
-    </TouchableOpacity>,
+    </TouchableHighlight>,
   ]);
 
   const [choices4, setChoices4] = useState([
-    <TouchableOpacity
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer4("a");
         Speech.speak("Sorry, you choose a wrong answer");
+        setStep(5);
       }}
       style={{ marginTop: 30 }}
     >
@@ -239,8 +256,9 @@ function FirstActivity() {
           source={require(`${imagePath}/square.png`)}
         />
       </View>
-    </TouchableOpacity>,
-    <TouchableOpacity
+    </TouchableHighlight>,
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer4("b");
         Speech.speak("Good Job!");
@@ -259,11 +277,13 @@ function FirstActivity() {
           source={require(`${imagePath}/star.png`)}
         />
       </View>
-    </TouchableOpacity>,
-    <TouchableOpacity
+    </TouchableHighlight>,
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer4("c");
         Speech.speak("Sorry, you choose a wrong answer");
+        setStep(5);
       }}
       style={{ marginTop: 30 }}
     >
@@ -279,11 +299,12 @@ function FirstActivity() {
           source={require(`${imagePath}/circle.png`)}
         />
       </View>
-    </TouchableOpacity>,
+    </TouchableHighlight>,
   ]);
 
   const [choices5, setChoices5] = useState([
-    <TouchableOpacity
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer5("a");
         Speech.speak("Good Job!");
@@ -303,8 +324,9 @@ function FirstActivity() {
           source={require(`${imagePath}/heart.png`)}
         />
       </View>
-    </TouchableOpacity>,
-    <TouchableOpacity
+    </TouchableHighlight>,
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer5("b");
         Speech.speak("Sorry, you choose a wrong answer");
@@ -322,8 +344,9 @@ function FirstActivity() {
           source={require(`${imagePath}/star.png`)}
         />
       </View>
-    </TouchableOpacity>,
-    <TouchableOpacity
+    </TouchableHighlight>,
+    <TouchableHighlight
+      underlayColor="#0099ff"
       onPress={() => {
         setAnswer5("c");
         Speech.speak("Sorry, you choose a wrong answer");
@@ -342,7 +365,7 @@ function FirstActivity() {
           source={require(`${imagePath}/circle.png`)}
         />
       </View>
-    </TouchableOpacity>,
+    </TouchableHighlight>,
   ]);
 
   useEffect(() => {
@@ -648,5 +671,9 @@ const styles = StyleSheet.create({
   video: {
     width: "100%",
     height: 200,
+  },
+  activeButton: {
+    backgroundColor: "red",
+    borderRadius: 10,
   },
 });
